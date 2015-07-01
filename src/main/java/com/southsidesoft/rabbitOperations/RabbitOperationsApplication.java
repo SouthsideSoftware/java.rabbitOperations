@@ -1,6 +1,7 @@
 package com.southsidesoft.rabbitOperations;
 
 import io.dropwizard.Application;
+import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import com.southsidesoft.rabbitOperations.resources.RabbitOperationsResource;
@@ -18,7 +19,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
 
     @Override
     public void initialize(Bootstrap<RabbitOperationsConfiguration> bootstrap) {
-        // nothing to do yet
+        bootstrap.addBundle(new Java8Bundle());
     }
 
     @Override
