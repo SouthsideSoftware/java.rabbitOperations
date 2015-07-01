@@ -1,0 +1,26 @@
+rabbit:
+  image: rabbitmq:management
+  ports:
+  - 15672:15672
+  - 5672:5672
+  environment:
+  - RABBITMQ_NODENAME=rabbit
+search:
+  image: elasticsearch
+  ports:
+  - 9200:9200
+  - 9300:9300
+  # Current image has permission problems when mounting volumes
+  # If you turn on config, you also have to setup a config file
+  # volumes:
+  #- $PWD/esdata:/usr/share/elasticsearch/data
+  #- $PWD/config:/usr/share/elasticsearch/config
+kopf:
+  image: lmenezes/elasticsearch-kopf
+  ports:
+  - 8085:80
+  links:
+  - search
+  environment:
+  - KOPF_SERVER_NAME=dockerhost
+  - KOPF_ES_SERVERS=search:9200
