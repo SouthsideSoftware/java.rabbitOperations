@@ -7,3 +7,6 @@ server:
   adminConnectors:
     - type: http
       port: 8081
+assets:
+  overrides:
+    /assets/: src/main/resources/assets/

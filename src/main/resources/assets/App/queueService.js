@@ -3,7 +3,7 @@
 
     this.applications = [];
 
-    $http.get("/api/v1/QueuePollers").success(function (data, status, headers, config) {
+    $http.get("/api/v1/QueuePoller").success(function (data, status, headers, config) {
         var newApplications = [];
         _.each(data.activePollers, function (queue) {
             var found = _.find(newApplications, function(application) { return application.applicationId === queue.queueSettings.applicationId });

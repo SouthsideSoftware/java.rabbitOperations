@@ -1,10 +1,25 @@
 package com.southsidesoft.rabbitOperations;
 
+import com.nefariouszhen.dropwizard.assets.AssetsBundleConfiguration;
+import com.nefariouszhen.dropwizard.assets.AssetsConfiguration;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class RabbitOperationsConfiguration extends Configuration {
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+public class RabbitOperationsConfiguration extends Configuration implements AssetsBundleConfiguration {
+    @Valid
+    @NotNull
+    @JsonProperty
+    private final AssetsConfiguration assets = new AssetsConfiguration();
+
+    @Override
+    public AssetsConfiguration getAssetsConfiguration() {
+        return assets;
+    }
+
     @NotEmpty
     private String template;
 

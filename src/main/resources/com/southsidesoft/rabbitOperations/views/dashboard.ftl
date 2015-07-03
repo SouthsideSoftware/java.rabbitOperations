@@ -3,6 +3,6 @@
 <@layout.layout>
 <h1>Dashboard</h1>
 <div>
-    This is the dashboard
+    This is the dash
 </div>
 </@layout.layout>

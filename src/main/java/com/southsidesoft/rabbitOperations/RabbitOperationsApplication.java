@@ -1,5 +1,6 @@
 package com.southsidesoft.rabbitOperations;
 
+import com.nefariouszhen.dropwizard.assets.ConfiguredAssetsBundle;
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
@@ -24,7 +25,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
     public void initialize(Bootstrap<RabbitOperationsConfiguration> bootstrap) {
         bootstrap.addBundle(new Java8Bundle());
         bootstrap.addBundle(new ViewBundle<RabbitOperationsConfiguration>());
-        bootstrap.addBundle(new AssetsBundle("/assets/", "/assets/"));
+        bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/assets/"));
     }
 
     @Override
