@@ -2,6 +2,7 @@ package com.southsidesoft.rabbitOperations;
 
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,6 +24,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
     public void initialize(Bootstrap<RabbitOperationsConfiguration> bootstrap) {
         bootstrap.addBundle(new Java8Bundle());
         bootstrap.addBundle(new ViewBundle<RabbitOperationsConfiguration>());
+        bootstrap.addBundle(new AssetsBundle("/assets/", "/assets/"));
     }
 
     @Override
@@ -36,7 +38,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
         environment.jersey().register(new DashboardResource());
 
         final TemplateHealthCheck healthCheck =
-                new TemplateHealthCheck(configuration.getTemplate());
+                new TemplateHealthCheck("hello");
         environment.healthChecks().register("template", healthCheck);
     }
 

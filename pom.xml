@@ -17,6 +17,12 @@
 
         <dependency>
             <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-assets</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-views</artifactId>
             <version>${dropwizard.version}</version>
         </dependency>
@@ -26,6 +32,15 @@
             <artifactId>dropwizard-views-freemarker</artifactId>
             <version>${dropwizard.version}</version>
         </dependency>
+
+
+        <!--
+        <dependency>
+            <groupId>com.bazaarvoice.dropwizard</groupId>
+            <artifactId>dropwizard-configurable-assets-bundle</artifactId>
+            <version>${dropwizard-configurable-assets.version}</version>
+        </dependency>
+        -->
 
         <dependency>
             <groupId>io.dropwizard.modules</groupId>
@@ -69,6 +84,7 @@
         <junit.version>4.12</junit.version>
         <dropwizard-java8.version>0.8.0-1</dropwizard-java8.version>
         <assertj.version>3.1.0</assertj.version>
+        <dropwizard-configurable-assets.version>0.2.2</dropwizard-configurable-assets.version>
     </properties>
 
     <build>
