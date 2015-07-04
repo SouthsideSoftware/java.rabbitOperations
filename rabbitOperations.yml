@@ -10,3 +10,15 @@ server:
 assets:
   overrides:
     /assets/: src/main/resources/assets/
+logging:
+  level: ALL
+  appenders:
+      - type: console
+        threshold: INFO
+      - type: file
+        threshold: ALL
+        logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+        currentLogFilename: /tmp/rabbitOperations/rabbitOperations.log
+        archivedLogFilenamePattern: /tmp/rabbitOperations/rabbitOperations-%d{yyyy-MM-dd}-%i.log.gz
+        archivedFileCount: 7
+        timeZone: UTC
