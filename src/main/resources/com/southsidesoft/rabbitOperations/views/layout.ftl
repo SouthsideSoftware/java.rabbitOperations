@@ -84,7 +84,7 @@
 <footer class="footer">
     <div class="container-fluid">
         <div class="col-sm-offset-3 col-sm-3 col-md-offset-2 col-md-2"><p class="text-muted">Version: @VersionHelper.Version()</p></div>
-        <div class="col-sm-offset-3 col-sm-3 col-md-offset-6 col-md-2"><a href="http://www.ravendb.org"><img src="/assets/images/poweredbyravendb.png" /></a></div>
+        <div class="col-sm-offset-3 col-sm-3 col-md-offset-6 col-md-2"><a href="http://www.southsidesoft.com" target="_blank"><img src="/assets/images/southside.png" /></a></div>
     </div>
 </footer>
 

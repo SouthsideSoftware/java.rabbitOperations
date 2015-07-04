@@ -3,7 +3,6 @@ package com.southsidesoft.rabbitOperations;
 import com.nefariouszhen.dropwizard.assets.ConfiguredAssetsBundle;
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
 import io.dropwizard.Application;
-import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
