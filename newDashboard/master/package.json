@@ -1,11 +1,12 @@
 {
-  "name": "Angle",
-  "version": "0.0.0",
-  "description": "Angle - Bootstrap Admin App + AngularJS",
-  "author": "@themicon_co",
+  "name": "RabbitOperations",
+  "version": "0.9.0",
+  "description": "Tool for managing microservice applications that use RabbitMQ as a transport",
+  "author": "Southside Softwware, LLC",
   "dependencies": {},
   "devDependencies": {
     "css-flip": "git://github.com/geedmo/css-flip",
+    "del": "^1.2.0",
     "gulp": "^3.8.10",
     "gulp-angular-htmlify": "^0.4.0",
     "gulp-changed": "^1.1.0",

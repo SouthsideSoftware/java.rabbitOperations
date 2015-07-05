@@ -45,8 +45,9 @@ App.run(["$rootScope", "$state", "$stateParams",  '$window', '$templateCache', f
   // Scope Globals
   // -----------------------------------
   $rootScope.app = {
-    name: 'Angle',
-    description: 'Angular Bootstrap Admin Template',
+    company: "Southside Software, LLC",
+    name: 'Rabbit Operations',
+    description: 'Tool for managing RabbitMQ microservices',
     year: ((new Date()).getFullYear()),
     layout: {
       isFixed: true,
