@@ -44,6 +44,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('dashboard_v3.html'),
         resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
     })
+    .state('app.dashboard_v4', {
+      url: '/dashboard_v4',
+      title: 'Dashboard v4',
+      templateUrl: helper.basepath('dashboard_v4.html'),
+      resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
+    })
     .state('app.widgets', {
         url: '/widgets',
         title: 'Widgets',

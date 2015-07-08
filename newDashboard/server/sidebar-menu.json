@@ -13,7 +13,8 @@
     "submenu": [
       {"text": "Dashboard v1",       "sref": "app.dashboard"},
       {"text": "Dashboard v2",       "sref": "app.dashboard_v2" },
-      {"text": "Dashboard v3",       "sref": "app.dashboard_v3" }
+      {"text": "Dashboard v3",       "sref": "app.dashboard_v3" },
+      {"text": "Dashboard v4",       "sref": "app.dashboard_v4" }
     ],
     "translate": "sidebar.nav.DASHBOARD"
   },
