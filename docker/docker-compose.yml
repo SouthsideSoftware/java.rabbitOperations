@@ -12,13 +12,13 @@ search:
   - 9300:9300
   # Current image has permission problems when mounting volumes
   # If you turn on config, you also have to setup a config file
-  # volumes:
-  #- $PWD/esdata:/usr/share/elasticsearch/data
+  volumes:
+  - $PWD/mydata:/usr/share/elasticsearch/data
   #- $PWD/config:/usr/share/elasticsearch/config
 kopf:
   image: lmenezes/elasticsearch-kopf
   ports:
-  - 8085:80
+  - 8086:80
   links:
   - search
   environment:
