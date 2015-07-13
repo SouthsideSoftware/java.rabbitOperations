@@ -6,7 +6,7 @@ rabbit:
   environment:
   - RABBITMQ_NODENAME=rabbit
 search:
-  image: elasticsearch
+  image: tcabanski/elasticsearch
   ports:
   - 9200:9200
   - 9300:9300

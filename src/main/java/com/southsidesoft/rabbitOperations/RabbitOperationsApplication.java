@@ -2,6 +2,7 @@ package com.southsidesoft.rabbitOperations;
 
 import com.nefariouszhen.dropwizard.assets.ConfiguredAssetsBundle;
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
+import com.southsidesoft.rabbitOperations.resources.api.v1.ApplicationResource;
 import io.dropwizard.Application;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
@@ -36,6 +37,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
         );
         environment.jersey().register(resource);
         environment.jersey().register(new DashboardResource());
+        environment.jersey().register(new ApplicationResource());
 
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck("hello");
