@@ -1,12 +1,12 @@
 rabbit:
-  image: rabbitmq:management
+  image: southsidesoft/rabbitmq
   ports:
   - 15672:15672
   - 5672:5672
   environment:
   - RABBITMQ_NODENAME=rabbit
 search:
-  image: tcabanski/elasticsearch
+  image: southsidesoft/elasticsearch
   ports:
   - 9200:9200
   - 9300:9300
