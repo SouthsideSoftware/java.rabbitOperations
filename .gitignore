@@ -20,3 +20,6 @@ newDashboard/app/css
 newDashboard/app/js
 newDashboard/app/pages
 newDashboard/app/views
+
+#docker data
+docker/mydata
