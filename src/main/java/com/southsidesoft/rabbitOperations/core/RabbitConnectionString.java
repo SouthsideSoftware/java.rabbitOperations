@@ -12,22 +12,53 @@ public class RabbitConnectionString {
     private String password;
     private String vhost;
 
-    public RabbitConnectionString() {
+    public static class Builder {
+        private String host;
+        private String user;
+        private String password;
+        private String vhost;
 
+        public RabbitConnectionString build(){
+            return new RabbitConnectionString(this);
+        }
 
+        public Builder setHost(String host) {
+            checkArgument(isNotBlank(host), "%s cannot be null, empty or whitespace", host);
+
+            this.host = host;
+            return this;
+        }
+
+        public Builder setCredentials(String user, String password) {
+            checkArgument(isNotBlank(user), "%s cannot be null, empty or whitespace", user);
+            checkArgument(isNotBlank(password), "%s cannot be null, empty or whitespace", password);
+
+            this.user = user;
+            this.password = password;
+            return this;
+        }
+
+        public Builder setVhost(String vhost) {
+            checkArgument(isNotBlank(vhost), "%s cannot be null, empty or whitespace", vhost);
+
+            this.vhost = vhost;
+            return this;
+        }
     }
 
-    public RabbitConnectionString(String host, String vhost, String user, String password){
-        checkArgument(isNotBlank(host), "%s cannot be null, empty or whitespace", host);
-        checkArgument(isNotBlank(vhost), "%s cannot be null, empty or whitespace", vhost);
-        checkArgument(isNotBlank(user), "%s cannot be null, empty or whitespace", user);
-        checkArgument(isNotBlank(password), "%s cannot be null, empty or whitespace", password);
+    public static Builder builder(){
+        return new Builder();
+    }
 
-        this.host = host;
-        this.vhost = vhost;
-        this.user = user;
-        this.password = password;
+    protected RabbitConnectionString() {
+        //serialization
+    }
 
+    private RabbitConnectionString(Builder builder) {
+        this.host = builder.host;
+        this.user = builder.user;
+        this.password = builder.password;
+        this.vhost = builder.vhost;
     }
 
     @JsonProperty
@@ -48,26 +79,6 @@ public class RabbitConnectionString {
     @JsonProperty
     public String getVhost() {
         return vhost;
-    }
-
-    public void setHost(String host) {
-        checkArgument(isNotBlank(host), "%s cannot be null, empty or whitespace", host);
-
-        this.host = host;
-    }
-
-    public void setVhost(String vhost) {
-        checkArgument(isNotBlank(vhost), "%s cannot be null, empty or whitespace", vhost);
-
-        this.vhost = vhost;
-    }
-
-    public void setCredentials(String user, String password){
-        checkArgument(isNotBlank(user), "%s cannot be null, empty or whitespace", user);
-        checkArgument(isNotBlank(password), "%s cannot be null, empty or whitespace", password);
-
-        this.user = user;
-        this.password = password;
     }
 
     @Override
