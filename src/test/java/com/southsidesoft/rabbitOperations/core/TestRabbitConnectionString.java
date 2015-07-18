@@ -19,4 +19,31 @@ public class TestRabbitConnectionString {
 
         assertThat(obj.toString()).isEqualTo("amqp://user:password@localhost");
     }
+
+    @Test
+    public void should_return_connection_string_with_vhost_when_vhost_set(){
+        RabbitConnectionString obj = new RabbitConnectionString();
+
+        obj.setVhost("vhost");
+
+        assertThat(obj.toString()).isEqualTo("amqp://localhost/vhost");
+    }
+
+    @Test
+    public void should_return_connection_string_with_host_when_host_set(){
+        RabbitConnectionString obj = new RabbitConnectionString();
+
+        obj.setHost("host");
+
+        assertThat(obj.toString()).isEqualTo("amqp://host");
+    }
+
+    @Test
+    public void should_return_connection_string_with_all_settings(){
+        RabbitConnectionString obj = new RabbitConnectionString("host", "vhost", "user", "password");
+
+        obj.setHost("host");
+
+        assertThat(obj.toString()).isEqualTo("amqp://user:password@host/vhost");
+    }
 }
