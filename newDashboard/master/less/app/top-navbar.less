@@ -68,19 +68,23 @@
     }
 
     // Different Logo size depends on the navbar state
-    .brand-logo,
-    .brand-logo-collapsed {
-      > img {
-        margin: 0 auto;
-      }
-    }
     .brand-logo {
       display: block;
-      padding: 15px 15px;
+      padding: 6px 15px;
+      > img {
+        display: inline;
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
     }
     .brand-logo-collapsed {
       display: none;
       padding: 6px 15px;
+      > img {
+        margin: 0 auto;
+      }
     }
   }
 
