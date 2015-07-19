@@ -14,6 +14,7 @@ public class Application {
     private int documentExpirationDays;
     private int rabbitManagementPort;
     private short prefetch;
+    private RabbitConnectionString connectionString;
 
 
     public Application() {
@@ -28,9 +29,11 @@ public class Application {
         pollingTimeoutMilliseconds = 500;
         heartbeatIntervalSeconds = 10;
         autoStartQueuePolling = false;
-        documentExpirationDays = 7*24;
+        documentExpirationDays = 7 * 24;
         rabbitManagementPort = 15672;
         prefetch = 10;
+        maxMessagePerRun = 0;
+        connectionString = RabbitConnectionString.builder().build();
     }
 
     @JsonProperty
@@ -86,5 +89,10 @@ public class Application {
     @JsonProperty
     public String getErrorQueue() {
         return errorQueue;
+    }
+
+    @JsonProperty
+    public RabbitConnectionString getConnectionString() {
+        return connectionString;
     }
 }

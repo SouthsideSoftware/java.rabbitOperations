@@ -7,7 +7,6 @@ import io.dropwizard.Application;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import com.southsidesoft.rabbitOperations.resources.RabbitOperationsResource;
 import com.southsidesoft.rabbitOperations.health.TemplateHealthCheck;
 import io.dropwizard.views.ViewBundle;
 
@@ -31,11 +30,6 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
     @Override
     public void run(RabbitOperationsConfiguration configuration,
                     Environment environment) {
-        final RabbitOperationsResource resource = new RabbitOperationsResource(
-                configuration.getTemplate(),
-                configuration.getDefaultName()
-        );
-        environment.jersey().register(resource);
         environment.jersey().register(new DashboardResource());
         environment.jersey().register(new ApplicationResource());
 
