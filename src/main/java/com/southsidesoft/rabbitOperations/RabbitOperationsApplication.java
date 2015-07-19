@@ -3,12 +3,14 @@ package com.southsidesoft.rabbitOperations;
 import com.nefariouszhen.dropwizard.assets.ConfiguredAssetsBundle;
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.ApplicationResource;
+import com.southsidesoft.rabbitOperations.resources.api.v1.ConfigurationResource;
 import io.dropwizard.Application;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import com.southsidesoft.rabbitOperations.health.TemplateHealthCheck;
 import io.dropwizard.views.ViewBundle;
+import org.glassfish.jersey.server.ResourceConfig;
 
 public class RabbitOperationsApplication extends Application<RabbitOperationsConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -32,6 +34,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
                     Environment environment) {
         environment.jersey().register(new DashboardResource());
         environment.jersey().register(new ApplicationResource());
+        environment.jersey().register(new ConfigurationResource());
 
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck("hello");

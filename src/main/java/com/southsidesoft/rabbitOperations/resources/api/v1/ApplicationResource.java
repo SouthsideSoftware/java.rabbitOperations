@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ApplicationResource {
     @GET
     public ArrayList<Application> get(){
-        ArrayList<Application> list = new ArrayList<Application>();
+        ArrayList<Application> list = new ArrayList<>();
         list.add(new Application("one", "one"));
         list.add(new Application("two", "two"));
 
