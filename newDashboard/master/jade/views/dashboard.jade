@@ -17,204 +17,170 @@ h3
 .row
   .col-lg-3.col-sm-6
     // START widget
-    .panel.widget.bg-primary
-      .row.row-table
-        .col-xs-4.text-center.bg-primary-dark.pv-lg
-          em.icon-cloud-upload.fa-3x
-        .col-xs-8.pv-lg
-          .h2.mt0 1700
-          .text-uppercase Uploads
+    .panel.bg-info-light.pt.b0.widget
+      .ph
+        em.icon-cloud-upload.fa-lg.pull-right
+        .h2.mt0 1700
+        .text-uppercase Uploads
+      div(sparkline="", data-type="line", data-width="100%", data-height="75px", data-line-color="{{colorByName('info')}}", data-chart-range-min="0", data-fill-color="{{colorByName('info')}}", data-spot-color="{{colorByName('info')}}", data-min-spot-color="{{colorByName('info')}}", data-max-spot-color="{{colorByName('info')}}", data-highlight-spot-color="{{colorByName('info')}}", data-highlight-line-color="{{colorByName('info')}}", values="2,5,3,7,4,5", style="margin-bottom: -2px", data-resize="true")
   .col-lg-3.col-sm-6
     // START widget
-    .panel.widget.bg-purple
-      .row.row-table
-        .col-xs-4.text-center.bg-purple-dark.pv-lg
-          em.icon-globe.fa-3x
-        .col-xs-8.pv-lg
-          .h2.mt0 700
-            small GB
-          .text-uppercase Quota
+    .panel.widget.bg-purple-light.pt.b0.widget
+      .ph
+        em.icon-globe.fa-lg.pull-right
+        .h2.mt0 700
+          span.text-sm.text-white GB
+        .text-uppercase Quota
+      div(sparkline="", data-type="line", data-width="100%", data-height="75px", data-line-color="{{colorByName('purple')}}", data-chart-range-min="0", data-fill-color="{{colorByName('purple')}}", data-spot-color="{{colorByName('purple')}}", data-min-spot-color="{{colorByName('purple')}}", data-max-spot-color="{{colorByName('purple')}}", data-highlight-spot-color="{{colorByName('purple')}}", data-highlight-line-color="{{colorByName('purple')}}", values="1,4,5,4,8,7,10", style="margin-bottom: -2px", data-resize="true")
   .col-lg-3.col-md-6.col-sm-12
     // START widget
-    .panel.widget.bg-green
-      .row.row-table
-        .col-xs-4.text-center.bg-green-dark.pv-lg
-          em.icon-bubbles.fa-3x
-        .col-xs-8.pv-lg
-          .h2.mt0 500
-          .text-uppercase Reviews
+    .panel.widget.bg-info-light.pt.b0.widget
+      .ph
+        em.icon-bubbles.fa-lg.pull-right
+        .h2.mt0 500
+        .text-uppercase Reviews
+      div(sparkline="", data-type="line", data-width="100%", data-height="75px", data-line-color="{{colorByName('info')}}", data-chart-range-min="0", data-fill-color="{{colorByName('info')}}", data-spot-color="{{colorByName('info')}}", data-min-spot-color="{{colorByName('info')}}", data-max-spot-color="{{colorByName('info')}}", data-highlight-spot-color="{{colorByName('info')}}", data-highlight-line-color="{{colorByName('info')}}", values="4,5,3,10,7,15", style="margin-bottom: -2px", data-resize="true")
   .col-lg-3.col-md-6.col-sm-12
-    // START date widget
-    .panel.widget
-      .row.row-table
-        .col-xs-4.text-center.bg-green.pv-lg
-          // See formats: https://docs.angularjs.org/api/ng/filter/date
-          now.text-sm(format='MMMM')
-          br
-          now.h2.mt0(format="d")
-        .col-xs-8.pv-lg
-          now.text-uppercase(format='EEEE')
-          br
-          now.h2.mt0(format='h:mm')
-          now.text-muted.text-sm(format='a')
-    // END date widget    
+    // START widget
+    .panel.widget.bg-purple-light.pt.b0.widget
+      .ph
+        em.icon-pencil.fa-lg.pull-right
+        .h2.mt0 35
+        .text-uppercase Annotations
+      div(sparkline="", data-type="line", data-width="100%", data-height="75px", data-line-color="{{colorByName('purple')}}", data-chart-range-min="0", data-fill-color="{{colorByName('purple')}}", data-spot-color="{{colorByName('purple')}}", data-min-spot-color="{{colorByName('purple')}}", data-max-spot-color="{{colorByName('purple')}}", data-highlight-spot-color="{{colorByName('purple')}}", data-highlight-line-color="{{colorByName('purple')}}", values="1,3,4,5,7,8", style="margin-bottom: -2px", data-resize="true")
+
 // END widgets box
 
+// START chart
 .row
-  // START dashboard main content
-  .col-lg-9
-    // START chart
-    .row
-      .col-lg-12
-        // START widget
-        #panelChart9.panel.panel-default(ng-controller="FlotChartController")
-          .panel-heading
-            paneltool(tool-collapse, tool-refresh="traditional")
-            .panel-title Inbound visitor statistics
-          .panel-wrapper(collapse="panelChart9")
-            .panel-body
-              flot(dataset='splineData', options='splineOptions', height="250px")
-        // END widget
-    // END chart
-    .row
-      .col-lg-12
-        .panel.widget
-          .row.row-table
-            .col-md-2.col-sm-3.col-xs-6.text-center.bg-info.pv-xl
-              // Allowed types
-              // "clear-day", "clear-night", "partly-cloudy-day", "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind", "fog"
-              div(skycon="clear-day", width="80", height="80")
-            .col-md-2.col-sm-3.col-xs-6.pv.br
-              .h1.m0.text-bold 32&deg;
-              .text-uppercase Clear
-            .col-md-2.col-sm-3.hidden-xs.pv.text-center.br
-              .text-info.text-sm 10 AM
-              .text-muted.text-md
-                em.wi.wi-day-cloudy
-              .text-info
-                em.wi.wi-sprinkles 
-                span.text-muted 20%
-              .text-muted 27&deg;
-            .col-md-2.col-sm-3.hidden-xs.pv.text-center.br
-              .text-info.text-sm 11 AM
-              .text-muted.text-md
-                em.wi.wi-day-cloudy
-              .text-info
-                em.wi.wi-sprinkles 
-                span.text-muted 30%
-              .text-muted 28&deg;
-            .col-md-2.hidden-sm.hidden-xs.pv.text-center.br
-              .text-info.text-sm 12 PM
-              .text-muted.text-md
-                em.wi.wi-day-cloudy
-              .text-info
-                em.wi.wi-sprinkles 
-                span.text-muted 20%
-              .text-muted 30&deg;
-            .col-md-2.hidden-sm.hidden-xs.pv.text-center
-              .text-info.text-sm 1 PM
-              .text-muted.text-md
-                em.wi.wi-day-sunny-overcast
-              .text-info
-                em.wi.wi-sprinkles 
-                span.text-muted 0%
-              .text-muted 30&deg;
+  .col-lg-12
+    // START widget
+    #panelChart9.panel.panel-default(ng-controller="FlotChartController")
+      .panel-heading
+        .panel-title Website Performance
+      .panel-wrapper(collapse="panelChart9")
+        .panel-body
+          flot(src="'server/chart/splinev3.json'", options='splineOptions', height="300px")
+    // END widget
+// END chart
 
-    .row
-      .col-lg-4
-        // START widget
-        .panel.widget
-          .panel-body
-            .clearfix
-              h3.pull-left.text-muted.mt0 300 
-              em.pull-right.text-muted.fa.fa-coffee.fa-2x
-            div.pv-lg(sparkline="",data-type='line', data-height='80', data-width='100%', data-line-width='2', data-line-color="{{colorByName('purple')}}", data-spot-color='#888', data-min-spot-color="{{colorByName('purple')}}", data-max-spot-color="{{colorByName('purple')}}", data-fill-color='', data-highlight-line-color='#fff', data-spot-radius='3', values="1,3,4,7,5,9,4,4,7,5,9,6,4", data-resize="true")
-            p: small.text-muted Actual progress
-            progressbar.progress-striped.progress-xs(value='80', type='info') 80%
-                
-        // END widget
-      .col-lg-8
-        .panel.panel-default
-          .panel-heading
-            .pull-right.label.label-danger 5
-            .pull-right.label.label-success 12
-            .panel-title Team messages
-          
-          // START list group
-          scrollable.list-group(height="180")
-            // START list group item
-            a.list-group-item(href='#')
-              .media-box
-                .pull-left
-                  img.media-box-object.img-circle.thumb32(src="app/img/user/02.jpg", alt="Image")
-                .media-box-body.clearfix
-                  small.pull-right 2h
-                  strong.media-box-heading.text-primary 
-                    span.circle.circle-success.circle-lg.text-left
-                    | Catherine Ellis
-                  p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla...
-            // END list group item
-            // START list group item
-            a.list-group-item(href='#')
-              .media-box
-                .pull-left
-                  img.media-box-object.img-circle.thumb32(src="app/img/user/03.jpg", alt="Image")
-                .media-box-body.clearfix
-                  small.pull-right 3h
-                  strong.media-box-heading.text-primary 
-                    span.circle.circle-success.circle-lg.text-left
-                    | Jessica Silva
-                  p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla facilisi.
-            // END list group item
-            // START list group item
-            a.list-group-item(href='#')
-              .media-box
-                .pull-left
-                  img.media-box-object.img-circle.thumb32(src="app/img/user/09.jpg", alt="Image")
-                .media-box-body.clearfix
-                  small.pull-right 4h
-                  strong.media-box-heading.text-primary 
-                    span.circle.circle-danger.circle-lg.text-left
-                    | Jessie Wells
-                  p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla...
-            // END list group item
-            // START list group item
-            a.list-group-item(href='#')
-              .media-box
-                .pull-left
-                  img.media-box-object.img-circle.thumb32(src="app/img/user/12.jpg", alt="Image")
-                .media-box-body.clearfix
-                  small.pull-right 1d
-                  strong.media-box-heading.text-primary 
-                    span.circle.circle-danger.circle-lg.text-left
-                    | Rosa Burke
-                  p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla...
-            // END list group item
-            // START list group item
-            a.list-group-item(href='#')
-              .media-box
-                .pull-left
-                  img.media-box-object.img-circle.thumb32(src="app/img/user/10.jpg", alt="Image")
-                .media-box-body.clearfix
-                  small.pull-right 2d
-                  strong.media-box-heading.text-primary 
-                    span.circle.circle-danger.circle-lg.text-left
-                    | Michelle Lane
-                  p.mb-sm: small Mauris eleifend, libero nec cursus lacinia...
-            // END list group item
-          // END list group
-          // START panel footer
-          .panel-footer.clearfix
-            .input-group
-              input.form-control.input-sm(type='text', placeholder='Search message ..')
-              span.input-group-btn
-                button.btn.btn-default.btn-sm(type='submit')
-                  i.fa.fa-search
-          // END panel-footer
-  // END dashboard main content
+.row
+  .col-lg-6
+    // START panel tab
+    .panel.panel-transparent
+      tabset.bg-white.p0(justified="true")
+        tab
+          tab-heading
+            em.fa.fa-clock-o.fa-fw
+            | Tasks Panel
+          div
+            // START list group
+            .list-group.mb0
+              a.list-group-item.bt0(href='#')
+                span.label.label-purple.pull-right just now
+                em.fa.fa-fw.fa-calendar.mr
+                | Calendar updated
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right 4 minutes ago
+                em.fa.fa-fw.fa-comment.mr
+                | Commented on a post
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right 23 minutes ago
+                em.fa.fa-fw.fa-truck.mr
+                | Order 392 shipped
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right 46 minutes ago
+                em.fa.fa-fw.fa-money.mr
+                | Invoice 653 has been paid
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right 1 hour ago
+                em.fa.fa-fw.fa-user.mr
+                | A new user has been added
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right 2 hours ago
+                em.fa.fa-fw.fa-check.mr
+                | Completed task: "pick up dry cleaning"
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right yesterday
+                em.fa.fa-fw.fa-globe.mr
+                | Saved the world
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right two days ago
+                em.fa.fa-fw.fa-check.mr
+                | Completed task: "fix error on sales page"
+              a.list-group-item(href='#')
+                span.label.label-purple.pull-right two days ago
+                em.fa.fa-fw.fa-check.mr
+                | Completed task: "fix error on sales page"
+            // END list group
+            .panel-footer.text-right
+              a.btn.btn-default.btn-sm(href='#') View All Activity 
+        tab
+          tab-heading
+            em.fa.fa-money.fa-fw
+            | Transactions Panel
+          div
+            // START table responsive
+            .table-responsive
+              table.table.table-bordered.table-hover.table-striped
+                thead
+                  tr
+                    th Order #
+                    th Order Date
+                    th Order Time
+                    th Amount (USD)
+                tbody
+                  tr
+                    td 3326
+                    td 10/21/2013
+                    td 3:29 PM
+                    td $321.33
+                  tr
+                    td 3325
+                    td 10/21/2013
+                    td 3:20 PM
+                    td $234.34
+                  tr
+                    td 3324
+                    td 10/21/2013
+                    td 3:03 PM
+                    td $724.17
+                  tr
+                    td 3323
+                    td 10/21/2013
+                    td 3:00 PM
+                    td $23.71
+                  tr
+                    td 3322
+                    td 10/21/2013
+                    td 2:49 PM
+                    td $8345.23
+                  tr
+                    td 3321
+                    td 10/21/2013
+                    td 2:23 PM
+                    td $245.12
+                  tr
+                    td 3320
+                    td 10/21/2013
+                    td 2:15 PM
+                    td $5663.54
+                  tr
+                    td 3319
+                    td 10/21/2013
+                    td 2:13 PM
+                    td $943.45
+            // END table responsive
+            .panel-footer.text-right
+              a.btn.btn-default.btn-sm(href='#') View All Transactions
+    // END panel tab
+  .col-lg-6(ng-controller="VectorMapController")
+    .panel.panel-transparent
+      div(vector-map="", height='450', scale=0, map-name="world_mill_en")
 
-  // START dashboard sidebar
-  aside.col-lg-3
+// START Widgets
+.row
+  .col-lg-3
     
     // START loader widget
     .panel.panel-default
@@ -229,7 +195,7 @@ h3
           span This Month
           span.text-dark 1000 Gb
     // END loader widget
-
+  .col-lg-3
     // START messages and activity
     .panel.panel-default
       .panel-heading
@@ -296,20 +262,6 @@ h3
                 small On 
                   em 10/12/2015 09:00 am
         // END list group item
-        // START list group item
-        .list-group-item
-          .media-box
-            .pull-left
-              span.fa-stack
-                em.fa.fa-circle.fa-stack-2x.text-warning
-                em.fa.fa-tasks.fa-stack-1x.fa-inverse.text-white
-            .media-box-body.clearfix
-              small.text-muted.pull-right.ml 1w
-              .media-box-heading
-                a(href="#").text-warning.m0 TASKS COMPLETION
-              progressbar.progress-xs.m0(value='22', type='warning') 22%
-
-        // END list group item
       // END list group
       // START panel footer
       .panel-footer.clearfix
@@ -317,5 +269,84 @@ h3
           small Load more
       // END panel-footer
     // END messages and activity
-  // END dashboard sidebar
+  .col-lg-6
+    .panel.panel-default
+      .panel-heading
+        .pull-right.label.label-danger 5
+        .pull-right.label.label-success 12
+        .panel-title Team messages
+      
+      // START list group
+      scrollable.list-group(height="230")
+        // START list group item
+        a.list-group-item(href='#')
+          .media-box
+            .pull-left
+              img.media-box-object.img-circle.thumb32(src="app/img/user/02.jpg", alt="Image")
+            .media-box-body.clearfix
+              small.pull-right 2h
+              strong.media-box-heading.text-primary 
+                span.circle.circle-success.circle-lg.text-left
+                | Catherine Ellis
+              p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla...
+        // END list group item
+        // START list group item
+        a.list-group-item(href='#')
+          .media-box
+            .pull-left
+              img.media-box-object.img-circle.thumb32(src="app/img/user/03.jpg", alt="Image")
+            .media-box-body.clearfix
+              small.pull-right 3h
+              strong.media-box-heading.text-primary 
+                span.circle.circle-success.circle-lg.text-left
+                | Jessica Silva
+              p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla facilisi.
+        // END list group item
+        // START list group item
+        a.list-group-item(href='#')
+          .media-box
+            .pull-left
+              img.media-box-object.img-circle.thumb32(src="app/img/user/09.jpg", alt="Image")
+            .media-box-body.clearfix
+              small.pull-right 4h
+              strong.media-box-heading.text-primary 
+                span.circle.circle-danger.circle-lg.text-left
+                | Jessie Wells
+              p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla...
+        // END list group item
+        // START list group item
+        a.list-group-item(href='#')
+          .media-box
+            .pull-left
+              img.media-box-object.img-circle.thumb32(src="app/img/user/12.jpg", alt="Image")
+            .media-box-body.clearfix
+              small.pull-right 1d
+              strong.media-box-heading.text-primary 
+                span.circle.circle-danger.circle-lg.text-left
+                | Rosa Burke
+              p.mb-sm: small Cras sit amet nibh libero, in gravida nulla. Nulla...
+        // END list group item
+        // START list group item
+        a.list-group-item(href='#')
+          .media-box
+            .pull-left
+              img.media-box-object.img-circle.thumb32(src="app/img/user/10.jpg", alt="Image")
+            .media-box-body.clearfix
+              small.pull-right 2d
+              strong.media-box-heading.text-primary 
+                span.circle.circle-danger.circle-lg.text-left
+                | Michelle Lane
+              p.mb-sm: small Mauris eleifend, libero nec cursus lacinia...
+        // END list group item
+      // END list group
+      // START panel footer
+      .panel-footer.clearfix
+        .input-group
+          input.form-control.input-sm(type='text', placeholder='Search message ..')
+          span.input-group-btn
+            button.btn.btn-default.btn-sm(type='submit')
+              i.fa.fa-search
+      // END panel-footer
 
+  // END dashboard sidebar
+// END Widgets

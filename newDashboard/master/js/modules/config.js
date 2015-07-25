@@ -26,28 +26,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'classyloader', 'toaster', 'whirl')
     })
     .state('app.dashboard', {
-        url: '/dashboard',
-        title: 'Dashboard',
-        templateUrl: helper.basepath('dashboard.html'),
-        resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
-    })
-    .state('app.dashboard_v2', {
-        url: '/dashboard_v2',
-        title: 'Dashboard v2',
-        templateUrl: helper.basepath('dashboard_v2.html'),
-        controller: ["$rootScope", function($rootScope) { $rootScope.app.layout.isCollapsed = true; }],
-        resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
-    })
-    .state('app.dashboard_v3', {
-        url: '/dashboard_v3',
-        title: 'Dashboard v3',
-        templateUrl: helper.basepath('dashboard_v3.html'),
-        resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
-    })
-    .state('app.dashboard_v4', {
-      url: '/dashboard_v4',
-      title: 'Dashboard v4',
-      templateUrl: helper.basepath('dashboard_v4.html'),
+      url: '/dashboard',
+      title: 'Dashboard',
+      templateUrl: helper.basepath('dashboard.html'),
       resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
     })
     .state('app.widgets', {
