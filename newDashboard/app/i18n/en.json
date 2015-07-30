@@ -38,13 +38,18 @@
     "heading": {
       "HEADER": "Main Navigation",
       "COMPONENTS": "Components",
-      "MORE": "More"
+      "MORE": "More",
+      "CONFIGURATION": "Configuration"
     },
     "nav": {
       "DASHBOARD": "Dashboard",
-      "WIDGETS": "Widgets",
-      "WIDGETS": "Widgets",
+      "CLUSTERS": "Clusters",
       "DOCUMENTATION": "Documentation",
+      "MESSAGES": "Messages",
+      "USERS": "Users",
+      "CLUSTERS": "Clusters",
+      "SERVICES": "Services",
+      "ENVIRONMENTS": "Environments",
       "element": {
         "ELEMENTS": "Elements",
         "BUTTON": "Button",

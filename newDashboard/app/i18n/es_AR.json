@@ -38,12 +38,18 @@
     "heading": {
       "HEADER": "Navegacion principal",
       "COMPONENTS": "Componentes",
-      "MORE": "Aun Mas"
+      "MORE": "Aun Mas",
+      "CONFIGURATION": "Configuración"
     },
     "nav": {
       "DASHBOARD": "Panel",
-      "WIDGETS": "Widgets",
+      "CLUSTERS": "Racimos",
+      "MESSAGES": "Mensajes",
       "DOCUMENTATION": "Documentación",
+      "USERS": "Users",
+      "CLUSTERS": "Clusters",
+      "SERVICES": "Services",
+      "ENVIRONMENTS": "Environments",
       "element": {
         "ELEMENTS": "Elementos",
         "BUTTON": "Boton",
