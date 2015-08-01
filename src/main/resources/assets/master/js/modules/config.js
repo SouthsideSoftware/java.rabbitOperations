@@ -29,7 +29,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
       url: '/dashboard',
       title: 'Dashboard',
       templateUrl: helper.basepath('dashboard.html'),
-      resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
+      resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps', 'ngDialog')
     })
     .state('app.widgets', {
         url: '/widgets',
