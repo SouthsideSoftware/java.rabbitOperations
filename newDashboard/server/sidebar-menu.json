@@ -9,23 +9,24 @@
     "sref": "app.dashboard",
     "icon": "icon-speedometer",
     "label": "label label-info",
-    "translate": "sidebar.nav.DASHBOARD"
+    "translate": "sidebar.nav.DASHBOARD",
+    "alert": "stub"
   },
   {
     "text": "Clusters",
-    "sref": "app.widgets",
+    "sref": "app.clusters",
     "icon": "icon-grid",
     "label": "label label-success",
-    "translate": "sidebar.nav.CLUSTERS"
+    "translate": "sidebar.nav.CLUSTERS",
+    "alert": "stub"
   },
   {
     "text": "Messages",
     "sref": "#",
     "icon": "icon-layers",
     "translate": "sidebar.nav.MESSAGES",
-    "submenu": [
-      {"text": "Horizontal Nav", "sref": "app-h.dashboard_v2"}
-    ]
+    "sref": "app.messages",
+    "alert": "stub"
   },
   {
     "text": "Configuration",
@@ -37,41 +38,38 @@
     "sref": "#",
     "icon": "icon-users",
     "translate": "sidebar.nav.USERS",
-    "submenu": [
-      {"text": "Horizontal Nav", "sref": "app-h.dashboard_v2"}
-    ]
+    "sref": "app.users",
+    "alert": "stub"
   },
   {
     "text": "Clusters",
     "sref": "#",
     "icon": "fa fa-database",
     "translate": "sidebar.nav.CLUSTERS",
-    "submenu": [
-      {"text": "Horizontal Nav", "sref": "app-h.dashboard_v2"}
-    ]
+    "sref": "app.clusters",
+    "alert": "stub"
   },
   {
     "text": "Services",
     "sref": "#",
     "icon": "fa fa-wifi",
     "translate": "sidebar.nav.SERVICES",
-    "submenu": [
-      {"text": "Horizontal Nav", "sref": "app-h.dashboard_v2"}
-    ]
+    "sref": "app.services",
+    "alert": "stub"
   },
   {
     "text": "Environments",
     "sref": "#",
     "icon": "fa fa-building",
     "translate": "sidebar.nav.ENVIRONMENTS",
-    "submenu": [
-      {"text": "Horizontal Nav", "sref": "app-h.dashboard_v2"}
-    ]
+    "sref": "app.environments",
+    "alert": "stub"
   },
   {
     "text": "Documentation",
     "sref": "app.documentation",
     "icon": "icon-graduation",
-    "translate": "sidebar.nav.DOCUMENTATION"
+    "translate": "sidebar.nav.DOCUMENTATION",
+    "alert": "stub"
   }
 ]
