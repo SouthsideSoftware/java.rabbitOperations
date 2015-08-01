@@ -9,7 +9,7 @@ server:
       port: 8081
 assets:
   overrides:
-    /assets/: src/main/resources/assets/
+    /web/: src/main/resources/assets/
 logging:
   level: ALL
   appenders:

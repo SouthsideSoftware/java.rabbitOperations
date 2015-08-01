@@ -26,7 +26,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
     public void initialize(Bootstrap<RabbitOperationsConfiguration> bootstrap) {
         bootstrap.addBundle(new Java8Bundle());
         bootstrap.addBundle(new ViewBundle<RabbitOperationsConfiguration>());
-        bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/assets/"));
+        bootstrap.addBundle(new ConfiguredAssetsBundle("/web/", "/web/"));
     }
 
     @Override
