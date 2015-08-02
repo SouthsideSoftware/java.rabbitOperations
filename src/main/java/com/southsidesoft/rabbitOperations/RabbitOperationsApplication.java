@@ -11,6 +11,8 @@ import io.dropwizard.setup.Environment;
 import com.southsidesoft.rabbitOperations.health.TemplateHealthCheck;
 import io.dropwizard.views.ViewBundle;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.secnod.dropwizard.shiro.ShiroBundle;
+import org.secnod.dropwizard.shiro.ShiroConfiguration;
 
 public class RabbitOperationsApplication extends Application<RabbitOperationsConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -26,6 +28,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
     public void initialize(Bootstrap<RabbitOperationsConfiguration> bootstrap) {
         bootstrap.addBundle(new Java8Bundle());
         bootstrap.addBundle(new ViewBundle<RabbitOperationsConfiguration>());
+        bootstrap.addBundle(shiro);
         bootstrap.addBundle(new ConfiguredAssetsBundle("/web/", "/web/"));
     }
 
@@ -40,5 +43,13 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
                 new TemplateHealthCheck("hello");
         environment.healthChecks().register("template", healthCheck);
     }
+
+    private final ShiroBundle<RabbitOperationsConfiguration> shiro = new ShiroBundle<RabbitOperationsConfiguration>() {
+
+        @Override
+        protected ShiroConfiguration narrow(RabbitOperationsConfiguration configuration) {
+            return configuration.shiro;
+        }
+    };
 
 }

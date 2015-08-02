@@ -57,6 +57,12 @@
             <version>${dropwizard-java8.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.secnod.dropwizard</groupId>
+            <artifactId>dropwizard-shiro</artifactId>
+            <version>${dropwizard-shiro.version}</version>
+        </dependency>
+
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>
@@ -83,6 +89,7 @@
         <assertj.version>3.1.0</assertj.version>
         <dropwizard-configurable-assets.version>0.8.0</dropwizard-configurable-assets.version>
         <guava.version>18.0</guava.version>
+        <dropwizard-shiro.version>0.2.0</dropwizard-shiro.version>
     </properties>
 
     <build>

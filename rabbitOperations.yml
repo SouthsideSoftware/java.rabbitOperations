@@ -10,6 +10,8 @@ server:
 assets:
   overrides:
     /web/: src/main/resources/assets/
+shiro:
+  iniConfigs: ["classpath:shiro.ini"]
 logging:
   level: ALL
   appenders:
