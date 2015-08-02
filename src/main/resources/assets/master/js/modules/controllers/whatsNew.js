@@ -1,12 +1,13 @@
 /*****************
  * WhatsNewController
  ***************/
-App.controller('WhatsNewController', ['$scope', 'ngDialog', '$cookies', function($scope, ngDialog, $cookies) {
+App.controller('WhatsNewController', ['$scope', 'ngDialog', 'ipCookie', function($scope, ngDialog, ipCookie) {
   'use strict';
-  
+
+  $scope.whatsNewVersionCookieName = 'whatsNewVersion';
   $scope.currentVersion = '0.10.0';
   $scope.alertWhatsNew = true;
-  var versionCookie = $cookies.whatsNewVersion;
+  var versionCookie = ipCookie($scope.whatsNewVersionCookieName);
   if (versionCookie !== undefined && versionCookie === $scope.currentVersion){
       $scope.alertWhatsNew = false;
   }
@@ -17,7 +18,7 @@ App.controller('WhatsNewController', ['$scope', 'ngDialog', '$cookies', function
       className: 'ngdialog-theme-default'
     });
 
-    $cookies.whatsNewVersion = $scope.currentVersion;
+    ipCookie($scope.whatsNewVersionCookieName, $scope.currentVersion, {expires: 365});
     $scope.alertWhatsNew = false;
   }
 

@@ -18,6 +18,7 @@ var App = angular.module('angle', [
     'ngAnimate',
     'ngStorage',
     'ngCookies',
+    'ipCookie',
     'pascalprecht.translate',
     'ui.bootstrap',
     'ui.router',
