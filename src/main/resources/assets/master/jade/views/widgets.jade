@@ -357,8 +357,8 @@ h3 Widgets
     // END widget
   .col-lg-4
     // START widget
-    .panel.widget(ng-controller="GMapController")
-      .gmap(ui-map='myMap1', ui-options='mapOptions1')
+    .panel.widget(ng-controller="GMapController as gmap")
+      .gmap(ui-map='gmap.myMap1', ui-options='gmap.mapOptions1')
       .panel-body.bg-inverse
         .row.row-table
           .col-xs-6

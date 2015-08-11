@@ -2,6 +2,7 @@
 @import '../bootstrap/variables';
 @import '../bootstrap/mixins/gradients';
 @import '../app/media-queries';
+@import '../app/material/colors';
 
 
 // 
@@ -11,13 +12,13 @@
 // LAYOUT
 
 @content-bg:                    #f5f7fa;
-@aside-bg:                      @gray-dark;
+@aside-bg:                      #fff;
 
 // NAVBAR TOP
 
-@nav-top-bg:                    @brand-info-dark;
+@nav-top-bg:                    @mdc-cyan-500;
 @nav-top-bg-start:              @nav-top-bg;
-@nav-top-bg-end:                @brand-info;
+@nav-top-bg-end:                @nav-top-bg;
 @nav-header-bg:                 transparent;
 
 @nav-top-item-mobile:           @nav-top-bg;
@@ -30,7 +31,7 @@
 
 @sidebar-bg:                      @aside-bg;
 
-@sidebar-item-color:              #e1e2e3;
+@sidebar-item-color:              #515253;
 @sidebar-item-color-active:       @nav-top-bg;
 @sidebar-item-bg-active:          darken(@sidebar-bg, 1%);
 

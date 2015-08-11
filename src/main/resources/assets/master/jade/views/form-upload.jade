@@ -1,47 +1,47 @@
 h3 Form Upload
   small Powerfull upload module
 
-div(ng-controller='FileUploadController', nv-file-drop='', uploader='uploader', filters='queueLimit, customFilter')
+div(ng-controller='FileUploadController as form', nv-file-drop='', uploader='form.uploader', filters='queueLimit, customFilter')
   .container-fluid
     .row
       .col-md-3
         .panel
           .panel-body
             h4.page-header.mt0 Select files
-            div(ng-show='uploader.isHTML5')
+            div(ng-show='form.uploader.isHTML5')
               // 3. nv-file-over uploader="link" over-class="className"
-              .box-placeholder.my-drop-zone(nv-file-over='', uploader='uploader',over-class='bg-info') Base drop zone                        
+              .box-placeholder.my-drop-zone(nv-file-over='', uploader='form.uploader',over-class='bg-info') Base drop zone                        
               // Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}"
-              div(nv-file-drop='', uploader='uploader', options="{ url: '/foo' }")
-                .box-placeholder.my-drop-zone(nv-file-over='', uploader='uploader', over-class='bg-purple')
+              div(nv-file-drop='', uploader='form.uploader', options="{ url: '/foo' }")
+                .box-placeholder.my-drop-zone(nv-file-over='', uploader='form.uploader', over-class='bg-purple')
                   | Another drop zone with its own settings
             // Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}"
             hr
-            input.form-control(filestyle="", type='file', data-button-text="Multiple", data-class-button='btn btn-default', data-class-input="form-control inline", nv-file-select='', uploader='uploader', multiple='')
+            input.form-control(filestyle="", type='file', data-button-text="Multiple", data-class-button='btn btn-default', data-class-input="form-control inline", nv-file-select='', uploader='form.uploader', multiple='')
             br
-            input.form-control(filestyle="", type='file', data-button-text="Single", data-class-button='btn btn-default', data-classinput="form-control inline", nv-file-select='', uploader='uploader')
+            input.form-control(filestyle="", type='file', data-button-text="Single", data-class-button='btn btn-default', data-classinput="form-control inline", nv-file-select='', uploader='form.uploader')
       .col-md-9(style='margin-bottom: 40px')
         .panel
           .panel-body
-            p.pull-right.label.label-info(ng-if="uploader.queue.length") Queue length: {{ uploader.queue.length }}
+            p.pull-right.label.label-info(ng-if="form.uploader.queue.length") Queue length: {{ form.uploader.queue.length }}
             h4.page-header.mt0 Upload queue
-            p.lead.text-center(ng-if="!uploader.queue.length") No files in queue. Start adding some..
-            div(ng-if="uploader.queue.length")
+            p.lead.text-center(ng-if="!form.uploader.queue.length") No files in queue. Start adding some..
+            div(ng-if="form.uploader.queue.length")
               
-              table.table(ng-if="uploader.queue.length")
+              table.table(ng-if="form.uploader.queue.length")
                 thead
                   tr
                     th(width='50%') Name
-                    th(ng-show='uploader.isHTML5') Size
-                    th(ng-show='uploader.isHTML5') Progress
+                    th(ng-show='form.uploader.isHTML5') Size
+                    th(ng-show='form.uploader.isHTML5') Progress
                     th Status
                     th Actions
                 tbody
-                  tr(ng-repeat='item in uploader.queue')
+                  tr(ng-repeat='item in form.uploader.queue')
                     td
                       strong {{ item.file.name }}
-                    td(ng-show='uploader.isHTML5', nowrap='') {{ item.file.size/1024/1024|number:2 }} MB
-                    td(ng-show='uploader.isHTML5')
+                    td(ng-show='form.uploader.isHTML5', nowrap='') {{ item.file.size/1024/1024|number:2 }} MB
+                    td(ng-show='form.uploader.isHTML5')
                       .progress.progress-xs(style='margin-bottom: 0;')
                         .progress-bar(role='progressbar', ng-style="{ 'width': item.progress + '%' }")
                     td.text-center
@@ -66,13 +66,13 @@ div(ng-controller='FileUploadController', nv-file-drop='', uploader='uploader', 
             div
               p Queue progress:
               .progress.progress-xs(style='')
-                .progress-bar(role='progressbar', ng-style="{ 'width': uploader.progress + '%' }")
-            button.btn.btn-info.btn-s(type='button', ng-click='uploader.uploadAll()', ng-disabled='!uploader.getNotUploadedItems().length')
+                .progress-bar(role='progressbar', ng-style="{ 'width': form.uploader.progress + '%' }")
+            button.btn.btn-info.btn-s(type='button', ng-click='form.uploader.uploadAll()', ng-disabled='!form.uploader.getNotUploadedItems().length')
               span.icon-cloud-upload.mr
               |  Upload all
-            button.btn.btn-warning.btn-s(type='button', ng-click='uploader.cancelAll()', ng-disabled='!uploader.isUploading')
+            button.btn.btn-warning.btn-s(type='button', ng-click='form.uploader.cancelAll()', ng-disabled='!form.uploader.isUploading')
               span.icon-close.mr
               |  Cancel all
-            button.btn.btn-danger.btn-s(type='button', ng-click='uploader.clearQueue()', ng-disabled='!uploader.queue.length')
+            button.btn.btn-danger.btn-s(type='button', ng-click='form.uploader.clearQueue()', ng-disabled='!form.uploader.queue.length')
               span.icon-trash.mr
               |  Remove all

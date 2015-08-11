@@ -1,7 +1,7 @@
 h3 Infinite Scroll
 
 
-div(ng-controller='InfiniteScrollController')
+div(ng-controller='InfiniteScrollController as inf')
   
   h4.page-header UI Scroll
   .row(ui-scroll-viewport='', style='height:230px; overflow-y: auto;')
@@ -9,8 +9,8 @@ div(ng-controller='InfiniteScrollController')
       .alert.alert-info {{item}}
 
   h4.page-header Infinte Scroll
-  .row(infinite-scroll='loadMore()', infinite-scroll-distance='3')
-    .col-sm-2.col-xs-3.mb(ng-repeat='image in images')
+  .row(infinite-scroll='inf.loadMore()', infinite-scroll-distance='3')
+    .col-sm-2.col-xs-3.mb(ng-repeat='image in inf.images')
       .alert.alert-purple.text-center 
         h2.mv-lg {{image}}
 

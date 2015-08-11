@@ -183,10 +183,10 @@
               em.fa.fa-angle-right.fa-fw
               | Workspace
     // Tag Cloud
-    .panel.panel-default(ng-controller="WordCloudController")
+    .panel.panel-default(ng-controller="WordCloudController as wc")
       .panel-heading Tag Cloud
       .panel-body
-        jqcloud.center-block(words='words', width='240', height='200', steps='7')
+        jqcloud.center-block(words='wc.words', width='240', height='200', steps='7')
     // Ads
     .panel.panel-default
       .panel-heading Ads

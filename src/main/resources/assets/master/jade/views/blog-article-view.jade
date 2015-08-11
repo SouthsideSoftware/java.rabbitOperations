@@ -1,8 +1,8 @@
 h3 New Article
 
-.container-fluid(ng-controller="ArticleController")
+.container-fluid(ng-controller="ArticleController as art")
 
-  alert(ng-repeat='alert in alerts', type='{{alert.type}}', close='closeAlert($index)') 
+  alert(ng-repeat='alert in art.alerts', type='{{alert.type}}', close='art.closeAlert($index)') 
     em.fa.fa-exclamation-circle.fa-lg.fa-fw
     span(ng-bind-html="alert.msg")
 
@@ -14,7 +14,7 @@ h3 New Article
           form(action="")
             input.mb-lg.form-control.input-lg(type="text", name="article-title", placeholder="Article title...")
             // Wysiswyg editor
-            .btn-group-small(text-angular='', ng-model='htmlContent', name='wysiswyg-editor')
+            .btn-group-small(text-angular='', ng-model='art.htmlContent', name='wysiswyg-editor')
             br
             p Notes
             textarea.mb-lg.form-control(cols="6")
@@ -111,17 +111,17 @@ h3 New Article
         .panel-body
           p.lead Article Data
           p Categories
-          ui-select.mb-lg(multiple='', ng-model='postDemo.categories', theme='bootstrap', ng-disabled='disabled')
+          ui-select.mb-lg(multiple='', ng-model='art.postDemo.categories', theme='bootstrap', ng-disabled='art.disabled')
             ui-select-match(placeholder='Select category...') {{$item}}
-            ui-select-choices(repeat='color in availableCategories') {{color}}    
+            ui-select-choices(repeat='color in art.availableCategories') {{color}}    
           p Tags
-          ui-select.mb-lg(multiple='', ng-model='postDemo.tags', theme='bootstrap', ng-disabled='disabled')
+          ui-select.mb-lg(multiple='', ng-model='art.postDemo.tags', theme='bootstrap', ng-disabled='art.disabled')
             ui-select-match(placeholder='Select tag...') {{$item}}
-            ui-select-choices(repeat='color in availableTags') {{color}}    
+            ui-select-choices(repeat='color in art.availableTags') {{color}}    
           p Reviewers
-          ui-select.mb-lg(multiple='', ng-model='postDemo.selectedReviewers', theme='bootstrap', ng-disabled='disabled')
+          ui-select.mb-lg(multiple='', ng-model='art.postDemo.selectedReviewers', theme='bootstrap', ng-disabled='art.disabled')
             ui-select-match(placeholder='Select reviewer...') {{$item.name}} &lt;{{$item.email}}&gt;
-            ui-select-choices(repeat='person in reviewers | propsFilter: {name: $select.search, age: $select.search}')
+            ui-select-choices(repeat='person in art.reviewers | propsFilter: {name: $select.search, age: $select.search}')
               div(ng-bind-html='person.name | highlight: $select.search')
               small
                 | email: {{person.email}}        age: 

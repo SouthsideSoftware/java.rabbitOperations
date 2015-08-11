@@ -7,10 +7,10 @@
       .input-group.form-group
         span.input-group-addon.text-sm To:
         input.form-control(type='text')
-      .input-group.form-group(ng-show="mail.cc")
+      .input-group.form-group(ng-show="mailbox.mail.cc")
         span.input-group-addon.text-sm CC:
         input.form-control(type='text')
-      .input-group.form-group(ng-show="mail.bcc")
+      .input-group.form-group(ng-show="mailbox.mail.bcc")
         span.input-group-addon.text-sm BCC:
         input.form-control(type='text')
       .input-group.form-group
@@ -19,8 +19,8 @@
       .mb-editor
         // START action buttons
         .btn-group.btn-group-sm.mb.pull-right
-          button.btn.btn-default.btn-sm(type="button", ng-class="{'active':mail.cc}", ng-click='mail.cc = !mail.cc', href='#') CC
-          button.btn.btn-default.btn-sm(type="button", ng-class="{'active':mail.bcc}", ng-click='mail.bcc = !mail.bcc', href='#') BCC
+          button.btn.btn-default.btn-sm(type="button", ng-class="{'active':mailbox.mail.cc}", ng-click='mailbox.mail.cc = !mailbox.mail.cc', href='#') CC
+          button.btn.btn-default.btn-sm(type="button", ng-class="{'active':mailbox.mail.bcc}", ng-click='mailbox.mail.bcc = !mailbox.mail.bcc', href='#') BCC
         // END action buttons  
         script(type='text/ng-template', id="ng-wig/views/ng-wig.html")
           .ng-wig

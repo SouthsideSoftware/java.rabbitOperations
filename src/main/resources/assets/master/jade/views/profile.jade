@@ -134,8 +134,8 @@
                         a(href="#").text-muted: strong Samantha Murphy
                         |  shared new location
                   p: em "Hey guys! Please check the new location for tomorrows's meeting."
-                  #map(ng-controller="GMapController")
-                    .gmap(ui-map='myMap5', ui-options='mapOptions5')
+                  #map(ng-controller="GMapController as gmap")
+                    .gmap(ui-map='gmap.myMap5', ui-options='gmap.mapOptions5')
 
           // END timeline item
 

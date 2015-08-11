@@ -2,7 +2,7 @@ h3 Full Calendar
   small Drag and Drop events and tasks
 
 // START row
-.calendar-app(ng-controller="CalendarController")
+.calendar-app
   .row
     .col-lg-3.col-md-4
       .row
@@ -54,7 +54,7 @@ h3 Full Calendar
       .panel.panel-default
         .panel-body
           // START calendar
-          #calendar
+          div(calendar="")
           // END calendar
       // END panel
   // END row

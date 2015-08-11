@@ -9,6 +9,10 @@
 
 
 .panel {
+  .material-shadow(1);
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 16px;
   .table {
     margin-bottom: 0;
     border: 0;
@@ -31,6 +35,21 @@
   border: 0;
 }
 
+// accordion
+.panel-group {
+  .panel {
+    border-radius: 0;
+    .panel-body {
+      border-top: 0
+    }
+  }
+  .panel-default {
+    .panel-heading {
+      background: @gray-lighter;
+    }
+  }
+}
+
 .panel-group {
   .panel-flat {
     box-shadow: 0 0 0 #000;
@@ -44,6 +63,7 @@
 }
 
 .panel-heading {
+  //border-radius: 0;
   paneltool > a {
     display: inline-block;
     color: #fff;
@@ -120,3 +140,4 @@
 .panel-dark {
   .panel-variant(@panel-global-border; #fff; @brand-dark; @brand-dark);
 }
+

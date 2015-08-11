@@ -35,7 +35,7 @@ h3 Data Tables
   .panel-heading Datatables | 
     small ngRepeat + ngResource
   .panel-body
-    div(ng-controller='DataTableController')
+    div(ng-controller='DataTableController as table1')
       table.row-border.hover(datatable='ng')
         thead
           tr
@@ -43,7 +43,7 @@ h3 Data Tables
             th First Name
             th Last Name
         tbody
-          tr(ng-repeat='person in persons')
+          tr(ng-repeat='person in table1.persons')
             td {{ person.id }}
             td {{ person.firstName }}
             td {{ person.lastName }}
@@ -53,23 +53,23 @@ h3 Data Tables
   .panel-heading Datatables | 
     small Chaning data
   .panel-body
-    div(ng-controller='DataTableController')
-      form.form-inline(ng-submit='addPerson()')
-        table.row-border.hover(datatable='ng', dt-options='dtOptions', dt-column-defs='dtColumnDefs')
+    div(ng-controller='DataTableController as table2')
+      form.form-inline(ng-submit='table2.addPerson()')
+        table.row-border.hover(datatable='ng', dt-options='table2.dtOptions', dt-column-defs='table2.dtColumnDefs')
           thead
             tr
               th
                 .form-group
                   label
-                    input.form-control(type='number', name='id', ng-model='person2Add.id', value='')
+                    input.form-control(type='number', name='id', ng-model='table2.person2Add.id', value='')
               th
                 .form-group
                   label
-                    input.form-control(type='text', name='firstName', ng-model='person2Add.firstName', value='')
+                    input.form-control(type='text', name='firstName', ng-model='table2.person2Add.firstName', value='')
               th
                 .form-group
                   label
-                    input.form-control(type='text', name='lastName', ng-model='person2Add.lastName', value='')
+                    input.form-control(type='text', name='lastName', ng-model='table2.person2Add.lastName', value='')
               th
                 .form-group
                   button.btn.btn-labeled.btn-success(type='submit')
@@ -82,13 +82,13 @@ h3 Data Tables
               th Last Name
               th
           tbody
-            tr(ng-repeat='hero in heroes')
+            tr(ng-repeat='hero in table2.heroes')
               td {{ hero.id }}
               td {{ hero.firstName }}
               td {{ hero.lastName }}
               td
-                button.btn.btn-sm.btn-warning(type='button', ng-click='modifyPerson($index)')
+                button.btn.btn-sm.btn-warning(type='button', ng-click='table2.modifyPerson($index)')
                   em.fa.fa-edit
-                button.btn.btn-sm.btn-danger(type='button', ng-click='removePerson($index)')
+                button.btn.btn-sm.btn-danger(type='button', ng-click='table2.removePerson($index)')
                   em.fa.fa-trash-o
 

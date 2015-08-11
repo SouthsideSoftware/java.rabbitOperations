@@ -14,10 +14,10 @@
       em.fa.fa-times.text-gray-dark
 // END action buttons
 
-.panel.panel-default(ng-controller="MailFolderController")
+.panel.panel-default(ng-controller="MailFolderController as mailfolder")
   .panel-body
-    p.lead.text-center(ng-if="!(mails | filter:folder).length") No mails here
-    table.table.table-hover.mb-mails(ng-if="(mails | filter:folder).length")
+    p.lead.text-center(ng-if="!(mailfolder.mails | filter:folder).length") No mails here
+    table.table.table-hover.mb-mails(ng-if="(mailfolder.mails | filter:folder).length")
       //- thead
       //-   tr
       //-     th(check-all)
@@ -28,7 +28,7 @@
       //-     th 
       //-     th 
       tbody
-        tr(ng-repeat="mail in mails | filter:folder", ng-class="{'mb-mail-active': mail.unread}")
+        tr(ng-repeat="mail in mailfolder.mails | filter:folder", ng-class="{'mb-mail-active': mail.unread}")
           td
             .checkbox.c-checkbox
               label

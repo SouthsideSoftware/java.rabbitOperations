@@ -1,10 +1,11 @@
 /*!
  * 
- * Angle - Bootstrap Admin App + AngularJS
+ * Angle - Bootstrap Admin App + AngularJS Material
  * 
+ * Version: 3.0.0
  * Author: @themicon_co
  * Website: http://themicon.co
- * License: http://support.wrapbootstrap.com/knowledge_base/topics/usage-licenses
+ * License: https://wrapbootstrap.com/help/licenses
  * 
  */
 
@@ -24,6 +25,7 @@
   3.2 top-navbar / .top-navbar
   3.3 sidebar / .sidebar
   3.4 offsidebar / .offsidebar
+  3.5 preloader / .preloader
 
 4. Components
   4.1  button-extra
@@ -93,6 +95,8 @@
 12. Documentation
   12.1 docs
 
+13. Material
+
  ========================================================================== */
 // Bootstrap
 @import "bootstrap/variables";
@@ -118,8 +122,12 @@
 @import "app/sidebar";
 @import "app/offsidebar";
 
+
 // Components
+@import "app/preloader";
 @import "app/breadcrumbs";
+@import "app/loading-bar";
+@import "app/animate";
 @import "app/button-extra";
 @import "app/placeholder";
 @import "app/panels";
@@ -134,8 +142,6 @@
 @import "app/masonry-grid";
 @import "app/widget";
 @import "app/typeahead";
-@import "app/animate";
-@import "app/loading-bar";
 @import "app/table-grid";
 @import "app/todo";
 @import "app/ngwig";
@@ -190,3 +196,12 @@
 
 // Documentation
 @import "app/docs";
+
+// Material
+@import "app/material/colors";
+@import "app/material/welcome";
+@import "app/material/cards";
+@import "app/material/md-forms";
+@import "app/material/md-list";
+@import "app/material/md-inputs";
+@import "app/material/ngmaterial";

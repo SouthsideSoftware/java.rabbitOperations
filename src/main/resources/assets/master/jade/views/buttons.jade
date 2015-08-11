@@ -251,30 +251,30 @@ h3 Buttons
     h3.panel-title Button actions
   .panel-body
     // START row
-    .row(ng-controller='ButtonsCtrl')
+    .row(ng-controller='ButtonsCtrl as btn')
       .col-lg-4
         h4 Single toggle
-        pre {{singleModel}}        
-        button.btn.btn-primary(type='button', ng-model='singleModel', btn-checkbox='btn-checkbox', btn-checkbox-true='1', btn-checkbox-false='0')
+        pre {{btn.singleModel}}        
+        button.btn.btn-primary(type='button', ng-model='btn.singleModel', btn-checkbox='btn-checkbox', btn-checkbox-true='1', btn-checkbox-false='0')
           | Single Toggle
       .col-lg-4
         h4 Checkbox
-        pre {{checkModel}}        
+        pre {{btn.checkModel}}        
         .btn-group
-          label.btn.btn-primary(ng-model='checkModel.left', btn-checkbox='btn-checkbox') Left
-          label.btn.btn-primary(ng-model='checkModel.middle', btn-checkbox='btn-checkbox') Middle
-          label.btn.btn-primary(ng-model='checkModel.right', btn-checkbox='btn-checkbox') Right
+          label.btn.btn-primary(ng-model='btn.checkModel.left', btn-checkbox='btn-checkbox') Left
+          label.btn.btn-primary(ng-model='btn.checkModel.middle', btn-checkbox='btn-checkbox') Middle
+          label.btn.btn-primary(ng-model='btn.checkModel.right', btn-checkbox='btn-checkbox') Right
       .col-lg-4
         h4 Radio &amp; Uncheckable Radio
-        pre {{radioModel || 'null'}}        
+        pre {{btn.radioModel || 'null'}}        
         .btn-group
-          label.btn.btn-primary(ng-model='radioModel', btn-radio="'Left'") Left
-          label.btn.btn-primary(ng-model='radioModel', btn-radio="'Middle'") Middle
-          label.btn.btn-primary(ng-model='radioModel', btn-radio="'Right'") Right
+          label.btn.btn-primary(ng-model='btn.radioModel', btn-radio="'Left'") Left
+          label.btn.btn-primary(ng-model='btn.radioModel', btn-radio="'Middle'") Middle
+          label.btn.btn-primary(ng-model='btn.radioModel', btn-radio="'Right'") Right
         .btn-group
-          label.btn.btn-success(ng-model='radioModel', btn-radio="'Left'", uncheckable='uncheckable') Left
-          label.btn.btn-success(ng-model='radioModel', btn-radio="'Middle'", uncheckable='uncheckable') Middle
-          label.btn.btn-success(ng-model='radioModel', btn-radio="'Right'", uncheckable='uncheckable') Right
+          label.btn.btn-success(ng-model='btn.radioModel', btn-radio="'Left'", uncheckable='uncheckable') Left
+          label.btn.btn-success(ng-model='btn.radioModel', btn-radio="'Middle'", uncheckable='uncheckable') Middle
+          label.btn.btn-success(ng-model='btn.radioModel', btn-radio="'Right'", uncheckable='uncheckable') Right
 
 
 // START panel
@@ -283,21 +283,21 @@ h3 Buttons
     h3.panel-title Pagination
   .panel-body
     // START row
-    .row(ng-controller='PaginationDemoCtrl')
+    .row(ng-controller='PaginationDemoCtrl as pag')
       .col-lg-6
         div
           h4 Default
-          pagination(total-items='totalItems', ng-model='currentPage', ng-change='pageChanged()')
-          pagination(direction-links='false', total-items='totalItems', ng-model='currentPage', num-pages='smallnumPages')
-          pre The selected page no: {{currentPage}}        
-          button.btn.btn-info(ng-click='setPage(3)') Set current page to: 3
+          pagination(total-items='pag.totalItems', ng-model='pag.currentPage', ng-change='pag.pageChanged()')
+          pagination(direction-links='false', total-items='pag.totalItems', ng-model='pag.currentPage', num-pages='pag.smallnumPages')
+          pre The selected page no: {{pag.currentPage}}        
+          button.btn.btn-info(ng-click='pag.setPage(3)') Set current page to: 3
       .col-lg-6
           h4 Pager
-          pager(total-items='totalItems', ng-model='currentPage')
+          pager(total-items='pag.totalItems', ng-model='pag.currentPage')
           hr
           h4 Limit the maximum visible buttons
-          pagination.pagination-sm(total-items='bigTotalItems', ng-model='bigCurrentPage', max-size='maxSize', boundary-links='true')
-          pagination.pagination-sm(total-items='bigTotalItems', ng-model='bigCurrentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages')
-          pre Page: {{bigCurrentPage}} / {{numPages}}        
+          pagination.pagination-sm(total-items='pag.bigTotalItems', ng-model='pag.bigCurrentPage', max-size='pag.maxSize', boundary-links='true')
+          pagination.pagination-sm(total-items='pag.bigTotalItems', ng-model='pag.bigCurrentPage', max-size='pag.maxSize', boundary-links='true', rotate='false', num-pages='pag.numPages')
+          pre Page: {{pag.bigCurrentPage}} / {{pag.numPages}}        
     // END row
 // END panel

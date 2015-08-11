@@ -4,7 +4,7 @@ h3 Form Extended
 .panel.panel-default
     .panel-heading  Form elements 
     .panel-body
-      form.form-horizontal(method='get', ng-controller="FormDemoCtrl")
+      form.form-horizontal(method='get', ng-controller="FormDemoCtrl as form")
 
         fieldset
           legend New Components
@@ -17,12 +17,12 @@ h3 Form Extended
             .col-sm-10
               .row
                 .col-xs-6
-                  slider.bs-slider.slider-vertical.mr(ng-model='slider1', min='5', max='35', step='1', orientation='vertical')
-                  slider.bs-slider.slider-vertical.mr(ng-model='slider2', min='5', max='35', step='1', orientation='vertical')
-                  slider.bs-slider.slider-vertical.mr(ng-model='slider3', min='5', max='35', step='1', orientation='vertical')
-                  slider.bs-slider.slider-vertical.mr(ng-model='slider4', min='5', max='35', step='1', orientation='vertical')
-                  slider.bs-slider.slider-vertical.mr(ng-model='slider5', min='5', max='35', step='1', orientation='vertical')
-                  slider.bs-slider.slider-vertical.mr(ng-model='slider6', min='5', max='35', step='1', orientation='vertical')
+                  slider.bs-slider.slider-vertical.mr(ng-model='form.slider1', min='5', max='35', step='1', orientation='vertical')
+                  slider.bs-slider.slider-vertical.mr(ng-model='form.slider2', min='5', max='35', step='1', orientation='vertical')
+                  slider.bs-slider.slider-vertical.mr(ng-model='form.slider3', min='5', max='35', step='1', orientation='vertical')
+                  slider.bs-slider.slider-vertical.mr(ng-model='form.slider4', min='5', max='35', step='1', orientation='vertical')
+                  slider.bs-slider.slider-vertical.mr(ng-model='form.slider5', min='5', max='35', step='1', orientation='vertical')
+                  slider.bs-slider.slider-vertical.mr(ng-model='form.slider6', min='5', max='35', step='1', orientation='vertical')
                   br
                   br
                   slider.bs-slider.slider-horizontal(ng-model='slider7', min='5', max='20', step='1', orientation='horizontal')
@@ -85,7 +85,7 @@ h3 Form Extended
           .form-group.mb
             label.col-sm-2.control-label Chosen Ajax
             .col-sm-10
-              select.chosen-select.input-md(chosen='', ng-model='state', ng-options='s for s in states', width="'100%'")
+              select.chosen-select.input-md(chosen='', ng-model='state', ng-options='s for s in form.states', width="'100%'")
                 option(value='')
 
           .form-group.mb
@@ -200,9 +200,9 @@ h3 Form Extended
             label.col-sm-2.control-label Tags input
               .text-sm.text-muted Type and press Enter
             .col-sm-10
-              input.form-control(type='text', tagsinput, ng-value="cities.join(',')", ng-model="cities") 
+              input.form-control(type='text', tagsinput, ng-value="form.cities.join(',')", ng-model="form.cities") 
               span.help-block Values: 
-                code {{cities}}
+                code {{form.cities}}
 
         fieldset
           .form-group
@@ -246,13 +246,13 @@ h3 Form Extended
                   .nw-editor
                     textarea.nw-editor__src(ng-show="editMode", ng-model="content") 
                     iframe.nw-editor__res(scrolling="{{ autoexpand ? 'no' : 'yes' }}", frameBorder="0", ng-hide="editMode", ng-model="content", ng-wig-editable='')
-              textarea(ng-wig="wysiwygContent") 
+              textarea(ng-wig="form.wysiwygContent") 
         fieldset
           .form-group
             label.col-sm-2.control-label TextAngular Editor
             .col-sm-10
               // Wysiswyg editor
-              .btn-group-small(text-angular='', ng-model='htmlContent', name='wysiswyg-editor')
+              .btn-group-small(text-angular='', ng-model='form.htmlContent', name='wysiswyg-editor')
         fieldset
           .form-group
             .col-sm-4.col-sm-offset-2

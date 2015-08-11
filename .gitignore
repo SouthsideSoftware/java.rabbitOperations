@@ -20,6 +20,15 @@ src/main/resources/assets/app/css
 src/main/resources/assets/app/js
 src/main/resources/assets/app/pages
 src/main/resources/assets/app/views
+src/main/resources/assets/npm-debug.log
+
+
+# Old dashboard
+src/main/resources/assets/app.old/*
+src/main/resources/assets/master.old/*
+src/main/resources/assets/vendor.old/*
+src/main/resources/assets/server.old/*
+src/main/resources/assets/index.html.old.html
 
 #docker data
 docker/mydata

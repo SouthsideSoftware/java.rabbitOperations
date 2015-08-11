@@ -47,32 +47,32 @@
 
 // END action buttons
 
-.panel.panel-default(ng-controller="MailViewController")
+.panel.panel-default(ng-controller="MailViewController as mailview")
   .panel-body
     table.table.mb-mails.mb-view
       tbody
         tr
           td
             .clearfix
-              .mb-mail-date {{mail.date}}
-              img.mb-mail-avatar(ng-src="{{mail.from.avatar}}", alt="Mail Avatar")
+              .mb-mail-date {{mailview.mail.date}}
+              img.mb-mail-avatar(ng-src="{{mailview.mail.from.avatar}}", alt="Mail Avatar")
               .pull-left
                 span From: 
-                span.mb-mail-from {{mail.from.name}} &lt;{{mail.from.email}}&gt;
+                span.mb-mail-from {{mailview.mail.from.name}} &lt;{{mailview.mail.from.email}}&gt;
                 p.mb-mail-to-list To: 
-                  a(href="#", title="mailto: {{to.email}}", ng-repeat="to in mail.to") {{to.name}}
+                  a(href="#", title="mailto: {{to.email}}", ng-repeat="to in mailview.mail.to") {{to.name}}
             .mb-mail-preview.mt-lg
-              h4 {{mail.subject}}
-              div(ng-bind-html="mail.content")
+              h4 {{mailview.mail.subject}}
+              div(ng-bind-html="mailview.mail.content")
             .mb-attachment
-              p(ng-if="mail.attach.length")
+              p(ng-if="mailview.mail.attach.length")
                 span
                   em.fa.fa-paperclip.fa-fw
-                  | {{mail.attach.length}} attachments — 
+                  | {{mailview.mail.attach.length}} attachments — 
                 a(href='#').mr.br.pr  Download all attachments
                 a(href='#') View all images
               ul.list-inline
-                li(ng-repeat="att in mail.attach")
+                li(ng-repeat="att in mailview.mail.attach")
                   a(href='{{att.url}}')
                     img.thumb64.img-responsive.img-thumbnail(ng-src='{{att.url}}')
                   p {{att.name}}

@@ -40,11 +40,11 @@ nav.navbar.topnavbar(role='navigation')
         // END lock screen
         // Search icon
         li
-          a(href='#', search-open)
+          a(href='', search-open)
             em.icon-magnifier
         // Fullscreen (only desktops)
         li.visible-lg
-          a(href='#', toggle-fullscreen)
+          a(href='', toggle-fullscreen)
             em.fa.fa-expand
         // START Alert menu
         li.dropdown.dropdown-list(dropdown="")
@@ -57,7 +57,7 @@ nav.navbar.topnavbar(role='navigation')
               // START list group
               .list-group
                 // list item
-                a.list-group-item(href='#')
+                a.list-group-item(href='')
                   .media-box
                     .pull-left
                       em.fa.fa-twitter.fa-2x.text-info
@@ -65,7 +65,7 @@ nav.navbar.topnavbar(role='navigation')
                         p.m0 New followers
                         p.m0.text-muted: small 1 new follower
                 // list item
-                a.list-group-item(href='#')
+                a.list-group-item(href='')
                   .media-box
                     .pull-left
                       em.fa.fa-envelope.fa-2x.text-warning
@@ -73,7 +73,7 @@ nav.navbar.topnavbar(role='navigation')
                         p.m0 New e-mails
                         p.m0.text-muted: small You have 10 new emails
                 // list item
-                a.list-group-item(href='#')
+                a.list-group-item(href='')
                   .media-box
                     .pull-left
                       em.fa.fa-tasks.fa-2x.text-success
@@ -82,7 +82,7 @@ nav.navbar.topnavbar(role='navigation')
                         p.m0.text-muted: small 11 pending task
 
                 // last list item 
-                a.list-group-item(href='#')
+                a.list-group-item(href='')
                   small(translate="topbar.notification.MORE") More notifications
                   span.label.label-danger.pull-right 14
               // END list group
@@ -90,7 +90,7 @@ nav.navbar.topnavbar(role='navigation')
         // END Alert menu
         // START Contacts button
         li
-          a(href='#', ng-click="app.offsidebarOpen = !app.offsidebarOpen")
+          a(href='', ng-click="app.offsidebarOpen = !app.offsidebarOpen")
             em.icon-notebook
         // END Contacts menu
       // END Right Navbar

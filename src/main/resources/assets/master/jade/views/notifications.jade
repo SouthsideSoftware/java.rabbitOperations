@@ -35,17 +35,17 @@ ul.breadcrumb
 
 .panel.panel-default
   .panel-heading Toaster notifications for Angular
-  .panel-body(ng-controller='ToasterDemoCtrl')
+  .panel-body(ng-controller='ToasterDemoCtrl as toast')
 
     toaster-container(toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}")
     .row
       .col-sm-6
         .form-group
           label Title
-          input.form-control(type='text', placeholder='Enter a title...', ng-model='toaster.title')
+          input.form-control(type='text', placeholder='Enter a title...', ng-model='toast.toaster.title')
         .form-group
           label Message
-          textarea.form-control(placeholder='Enter a message', rows='5', ng-model='toaster.text')
+          textarea.form-control(placeholder='Enter a message', rows='5', ng-model='toast.toaster.text')
       .col-sm-6
         .row
           .col-md-6
@@ -53,33 +53,33 @@ ul.breadcrumb
             label Toast Type
             .radio.c-radio
               label
-                input(type='radio', name='toasts', ng-model='toaster.type', value='success')
+                input(type='radio', name='toasts', ng-model='toast.toaster.type', value='success')
                 span.fa.fa-circle
                 | Success
             .radio.c-radio
               label
-                input(type='radio', name='toasts', ng-model='toaster.type', value='info')
+                input(type='radio', name='toasts', ng-model='toast.toaster.type', value='info')
                 span.fa.fa-circle
                 | Info
             .radio.c-radio
               label
-                input(type='radio', name='toasts', ng-model='toaster.type', value='wait')
+                input(type='radio', name='toasts', ng-model='toast.toaster.type', value='wait')
                 span.fa.fa-circle
                 | Wait
             .radio.c-radio
               label
-                input(type='radio', name='toasts', ng-model='toaster.type', value='warning')
+                input(type='radio', name='toasts', ng-model='toast.toaster.type', value='warning')
                 span.fa.fa-circle
                 | Warning
             .radio.c-radio
               label
-                input(type='radio', name='toasts', ng-model='toaster.type', value='error')
+                input(type='radio', name='toasts', ng-model='toast.toaster.type', value='error')
                 span.fa.fa-circle
                 | Error
-    button.btn.btn-info(ng-click='pop()') Show a Toaster
+    button.btn.btn-info(ng-click='toast.pop()') Show a Toaster
 
 // START row
-.row(ng-controller="NotifyDemoCtrl")
+.row(ng-controller="NotifyDemoCtrl as noti")
   .col-lg-6
     // START panel
     .panel.panel-default
@@ -88,13 +88,13 @@ ul.breadcrumb
       .panel-body
         p Create toggleable notifications that fade out automatically.
         .input-group
-          input.form-control(type='text', ng-model="msg", ng-init="msg = 'Message ..'")
+          input.form-control(type='text', ng-model="noti.msg", ng-init="noti.msg = 'Message ..'")
           span.input-group-btn
-            button.btn.btn-default(type='button', notify="", data-message="msg") Notify!!
+            button.btn.btn-default(type='button', notify="", data-message="noti.msg") Notify!!
 
         p You can use HTML inside your notification message          
         p
-          button.btn.btn-default(type="button", notify="", data-message="msgHtml") Message with Icon
+          button.btn.btn-default(type="button", notify="", data-message="noti.msgHtml") Message with Icon
     // END panel
   .col-lg-6
     // START panel
@@ -103,19 +103,19 @@ ul.breadcrumb
         | Notify with Status and Position
       .panel-body
         p
-          select.form-control(ng-model="notifyOpts.status")
+          select.form-control(ng-model="noti.notifyOpts.status")
             option(value="info") Info
             option(value="danger") Danger
             option(value="warning") Warning
             option(value="success") Success
         p
-          select.form-control(ng-model="notifyOpts.pos")
+          select.form-control(ng-model="noti.notifyOpts.pos")
             option(value="bottom-center") Bottom Cener
             option(value="top-left") Top Left
             option(value="top-right") Top Right
             option(value="bottom-right") Bottom Right
         p
-          button.btn.btn-default(type="button", notify="", data-message="notifyMsg" data-options="notifyOpts") Notify!!
+          button.btn.btn-default(type="button", notify="", data-message="noti.notifyMsg", data-options="noti.notifyOpts") Notify!!
     // END panel
 
 .row
@@ -131,17 +131,17 @@ ul.breadcrumb
         .alert.alert-info
           | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
           a.alert-link(href='#') Alert Link
-        div(ng-controller='AlertDemoCtrl')
-          alert(ng-repeat='alert in alerts', type='{{alert.type}}', close='closeAlert($index)') {{alert.msg}}
-          button.btn.btn-info(ng-click='addAlert()') Add Alert
+        div(ng-controller='AlertDemoCtrl as alrt')
+          alert(ng-repeat='alert in alrt.alerts', type='{{alert.type}}', close='alrt.closeAlert($index)') {{alert.msg}}
+          button.btn.btn-info(ng-click='alrt.addAlert()') Add Alert
     // END panel
 
     // START panel
-    .panel.panel-default(ng-controller='ProgressDemoCtrl')
+    .panel.panel-default(ng-controller='ProgressDemoCtrl as prog')
       .panel-heading Progress Bar
         .btn-group.pull-right
-          button.btn.btn-xs.btn-primary(type='button', ng-click='randomStacked()') Stacked
-          button.btn.btn-xs.btn-primary(type='button', ng-click='random()') Randomize
+          button.btn.btn-xs.btn-primary(type='button', ng-click='prog.randomStacked()') Stacked
+          button.btn.btn-xs.btn-primary(type='button', ng-click='prog.random()') Randomize
       .panel-body
         h4 Static
         .row
@@ -154,37 +154,37 @@ ul.breadcrumb
               i 166 / 200
 
         h4 Dynamic
-        progressbar(max='max', value='dynamic')
-          span.text-nowrap {{dynamic}} / {{max}}
+        progressbar(max='prog.max', value='prog.dynamic')
+          span.text-nowrap {{prog.dynamic}} / {{prog.max}}
         small
           em No animation
-        progressbar(animate='false', value='dynamic', type='success')
+        progressbar(animate='false', value='prog.dynamic', type='success')
           b {{dynamic}}%
         small
           em Object (changes type based on value)
-        progressbar.progress-striped.active(value='dynamic', type='{{type}}')
+        progressbar.progress-striped.active(value='prog.dynamic', type='{{prog.type}}')
           | {{type}}
-          i(ng-show='showWarning') !!! Watch out !!!
+          i(ng-show='prog.showWarning') !!! Watch out !!!
 
         h4 Stacked
         progress
-          bar(ng-repeat='bar in stacked track by $index', value='bar.value', type='{{bar.type}}')
+          bar(ng-repeat='bar in prog.stacked track by $index', value='bar.value', type='{{bar.type}}')
             span(ng-hide='ng-hide', bar.value='bar.value')
     // END panel
     // START panel
     .panel.panel-default
       .panel-heading Tooltips
       .panel-body
-        div(ng-controller='TooltipDemoCtrl')
+        div(ng-controller='TooltipDemoCtrl as ttip')
           .form-group
             label Dynamic Tooltip Text
-            input.form-control(type='text', ng-model='dynamicTooltipText')
+            input.form-control(type='text', ng-model='ttip.dynamicTooltipText')
           .form-group
             label Dynamic Tooltip Popup Text
-            input.form-control(type='text', ng-model='dynamicTooltip')
+            input.form-control(type='text', ng-model='ttip.dynamicTooltip')
           p
             | Pellentesque 
-            a(href='#', tooltip='{{dynamicTooltip}}') {{dynamicTooltipText}}
+            a(href='#', tooltip='{{ttip.dynamicTooltip}}') {{ttip.dynamicTooltipText}}
             | , 
             | sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in 
             | aliquam. Tincidunt lobortis feugiat vivamus at 
@@ -201,7 +201,7 @@ ul.breadcrumb
             | turpis massa tincidunt dui ut. 
           p
             | I can even contain HTML. 
-            a(href='#', tooltip-html-unsafe='{{htmlTooltip}}') Check me out!
+            a(href='#', tooltip-html-unsafe='{{ttip.htmlTooltip}}') Check me out!
           form(role='form')
             .form-group
               label Or use custom triggers, like focus: 
@@ -217,7 +217,7 @@ ul.breadcrumb
       .panel-body
 
         // Modal Controller
-        div(ng-controller='ModalController')
+        div(ng-controller='ModalController as mod')
           // Modal inline template
           script(type='text/ng-template', id='/myModalContent.html')
             .modal-header
@@ -231,9 +231,9 @@ ul.breadcrumb
 
           p Launch Demo Modal
           // Button trigger modal 
-          button.btn.btn-primary(ng-click='open()') Open me!
-          button.btn.btn-primary(ng-click='open(\'lg\')') Large modal
-          button.btn.btn-primary(ng-click='open(\'sm\')') Small modal
+          button.btn.btn-primary(ng-click='mod.open()') Open me!
+          button.btn.btn-primary(ng-click='mod.open(\'lg\')') Large modal
+          button.btn.btn-primary(ng-click='mod.open(\'sm\')') Small modal
           
           div#modal-state
     // END panel
@@ -242,15 +242,15 @@ ul.breadcrumb
       .panel-heading
         | Popovers
       .panel-body
-        div(ng-controller='PopoverDemoCtrl')
+        div(ng-controller='PopoverDemoCtrl as popo')
             h4 Dynamic
             .form-group
               label Popup Text:
-              input.form-control(type='text', ng-model='dynamicPopover')
+              input.form-control(type='text', ng-model='popo.dynamicPopover')
             .form-group
               label Popup Title:
-              input.form-control(type='text', ng-model='dynamicPopoverTitle')
-            button.btn.btn-warning(popover='{{dynamicPopover}}', popover-title='{{dynamicPopoverTitle}}') Dynamic Popover
+              input.form-control(type='text', ng-model='popo.dynamicPopoverTitle')
+            button.btn.btn-warning(popover='{{popo.dynamicPopover}}', popover-title='{{popo.dynamicPopoverTitle}}') Dynamic Popover
 
             h4 Positional
             button.btn.btn-default(popover-placement='top', popover='On the Top!') Top
@@ -271,21 +271,21 @@ ul.breadcrumb
     .panel.panel-default
       .panel-heading Ratings
       .panel-body
-        div(ng-controller='RatingDemoCtrl')
+        div(ng-controller='RatingDemoCtrl as rate')
           h4 Default
-          rating(ng-model='rate', max='max', readonly='isReadonly', on-hover='hoveringOver(value)', on-leave='overStar = null', state-on="'fa fa-star text-yellow'", state-off="'fa fa-star-o'")
-          span(class="label", ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}", ng-show="overStar && !isReadonly")
+          rating(ng-model='rate.rate', max='rate.max', readonly='rate.isReadonly', on-hover='rate.hoveringOver(value)', on-leave='overStar = null', state-on="'fa fa-star text-yellow'", state-off="'fa fa-star-o'")
+          span(class="label", ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}", ng-show="overStar && !rate.isReadonly")
             | {{percent}}%
           .well.mt
             b Rate: 
-            b {{rate}}
+            b {{rate.rate}}
             |  - Readonly is: 
-            i {{isReadonly}}
+            i {{rate.isReadonly}}
             |  - Hovering over: 
             b {{overStar || "none"}}
           
-          button.btn.btn-sm.btn-danger(ng-click='rate = 0', ng-disabled='isReadonly') Clear
-          button.btn.btn-sm.btn-default(ng-click='isReadonly = ! isReadonly') Toggle Readonly
+          button.btn.btn-sm.btn-danger(ng-click='rate = 0', ng-disabled='rate.isReadonly') Clear
+          button.btn.btn-sm.btn-default(ng-click='rate.isReadonly = ! rate.isReadonly') Toggle Readonly
           
           hr
           h4 Custom icons
@@ -296,7 +296,7 @@ ul.breadcrumb
               i Trees:
               | {{x}})
           .mb(ng-init='y = 2')
-            rating(ng-model='y', rating-states='ratingStates')
+            rating(ng-model='y', rating-states='rate.ratingStates')
             b
               | (
               i Things:

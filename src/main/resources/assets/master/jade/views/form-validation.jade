@@ -2,10 +2,10 @@ h3 Form Validation
   small Native AngularJS input validation
 
 // START row
-.container-fluid(ng-controller="FormValidationController")
+.container-fluid(ng-controller="FormValidationController as form")
   .row
     .col-md-12
-      form.form-validate.form-horizontal(name="formValidate", ng-submit="submitForm()", novalidate="")
+      form.form-validate.form-horizontal(name="form.formValidate", ng-submit="form.submitForm()", novalidate="")
         // START panel
         .panel.panel-default
           .panel-body
@@ -16,7 +16,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Required Text
                 .col-sm-6
                   input.form-control(type='text', name='sometext', required='', ng-model="sometext")
-                  span.text-danger(ng-show="validateInput('sometext', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('sometext', 'required')") This field is required
                 .col-sm-4
                   small.text-muted required
             fieldset
@@ -24,8 +24,8 @@ h3 Form Validation
                 label.col-sm-2.control-label Email
                 .col-sm-6
                   input.form-control(type='email', placeholder="mail@example.com", name='email', required='', ng-model="email")
-                  span.text-danger(ng-show="validateInput('email', 'required')") This field is required
-                  span.text-danger(ng-show="validateInput('email', 'email')") This field must be a valid email address
+                  span.text-danger(ng-show="form.validateInput('email', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('email', 'email')") This field must be a valid email address
                 .col-sm-4
                   small.text-muted type='email'
             fieldset
@@ -37,7 +37,7 @@ h3 Form Validation
                       input(type='checkbox', required='', name="checkbox", ng-model="checkbox").needsclick
                       span.fa.fa-check
                       |  Option one
-                  span.text-danger(ng-show="validateInput('checkbox', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('checkbox', 'required')") This field is required
                   .radio.c-radio
                     label
                       input(type='radio', required='', name='radio', value='option1', ng-model="radio")
@@ -48,7 +48,7 @@ h3 Form Validation
                       input(type='radio', required='', name='radio', value='option2', ng-model="radio")
                       span.fa.fa-circle
                       |  Option two checked
-                  span.text-danger(ng-show="validateInput('radio', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('radio', 'required')") This field is required
                 .col-sm-4
             fieldset
               .form-group
@@ -60,7 +60,7 @@ h3 Form Validation
                     option(value="2") Option 2
                     option(value="3") Option 3
                     option(value="4") Option 4
-                  span.text-danger(ng-show="validateInput('select', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('select', 'required')") This field is required
                 .col-sm-4
                   small.text-muted type='number'
             fieldset
@@ -68,7 +68,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Number
                 .col-sm-6
                   input.form-control(type='number', name='number', required='', ng-model="number")
-                  span.text-danger(ng-show="validateInput('number', 'number')") This field must be a valid number
+                  span.text-danger(ng-show="form.validateInput('number', 'number')") This field must be a valid number
                 .col-sm-4
                   small.text-muted type='number'
             fieldset
@@ -76,7 +76,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Digits
                 .col-sm-6
                   input.form-control(type='text', name='digits', required='', ng-pattern="/^[0-9]+$/", ng-model="digits")
-                  span.text-danger(ng-show="validateInput('digits', 'pattern')") This field must contain only digits
+                  span.text-danger(ng-show="form.validateInput('digits', 'pattern')") This field must contain only digits
                 .col-sm-4
                   small.text-muted ng-pattern="/^[0-9]+$/"
             fieldset
@@ -84,7 +84,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Alphanum
                 .col-sm-6
                   input.form-control(type='text', name='alphanum', required='', ng-pattern="/^[a-zA-Z]+$/", ng-model="alphanum")
-                  span.text-danger(ng-show="validateInput('alphanum', 'pattern')") This field must contain only letters
+                  span.text-danger(ng-show="form.validateInput('alphanum', 'pattern')") This field must contain only letters
                 .col-sm-4
                   small.text-muted ng-pattern="/^[a-zA-Z]+$/"
             fieldset.bb0
@@ -92,7 +92,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Url
                 .col-sm-6
                   input.form-control(type='url', name='url', required='', ng-model="url", placeholder="protocol://")
-                  span.text-danger(ng-show="validateInput('url', 'url')") This field must be a valid url
+                  span.text-danger(ng-show="form.validateInput('url', 'url')") This field must be a valid url
                 .col-sm-4
                   small.text-muted type='url'
             fieldset.b0
@@ -102,7 +102,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Min
                 .col-sm-6
                   input.form-control(type='text', name='min', required='', ng-model="minvalue", ui-validate="'$value >= 6'")
-                  span.text-danger(ng-show="validateInput('min', 'min')") This field requires minimum value
+                  span.text-danger(ng-show="form.validateInput('min', 'min')") This field requires minimum value
                 .col-sm-4
                   small.text-muted  ui-validate="'$value &gt;= 6'"
             fieldset
@@ -110,7 +110,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Max
                 .col-sm-6
                   input.form-control(type='text', name='max', required='', ng-model="maxvalue", ui-validate="'$value <= 6'")
-                  span.text-danger(ng-show="validateInput('max', 'max')") This field requires maximum value
+                  span.text-danger(ng-show="form.validateInput('max', 'max')") This field requires maximum value
                 .col-sm-4
                   small.text-muted ui-validate="'$value &lt;= 6'"
             fieldset
@@ -118,7 +118,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Minlength
                 .col-sm-6
                   input.form-control(type='text', name='minlength', required='', ng-model="minlen", ng-minlength="6")
-                  span.text-danger(ng-show="validateInput('minlength', 'minlength')") This field requires a min length
+                  span.text-danger(ng-show="form.validateInput('minlength', 'minlength')") This field requires a min length
                 .col-sm-4
                   small.text-muted ng-minlength="6"
             fieldset
@@ -126,15 +126,15 @@ h3 Form Validation
                 label.col-sm-2.control-label Maxlength
                 .col-sm-6
                   input.form-control(type='text', name='maxlength', required='', , ng-model="maxlen", ng-maxlength="10")
-                  span.text-danger(ng-show="validateInput('maxlength', 'maxlength')") This field requires a max length
+                  span.text-danger(ng-show="form.validateInput('maxlength', 'maxlength')") This field requires a max length
                 .col-sm-4
                   small.text-muted ng-maxlength="10"
             fieldset
               .form-group
                 label.col-sm-2.control-label Min words
                 .col-sm-6
-                  input.form-control(type='text', name='minwords', required='', ui-validate="'words($value) >= 6'", ng-model="minwords")
-                  span.text-danger(ng-show="validateInput('minwords', 'validator')") This field requires a minimum amount of words
+                  input.form-control(type='text', name='minwords', required='', ui-validate="'form.words($value) >= 6'", ng-model="minwords")
+                  span.text-danger(ng-show="form.validateInput('minwords', 'validator')") This field requires a minimum amount of words
                 .col-sm-4
                   small.text-muted ui-validate="'words($value) &gt;= 6'"
             fieldset.bb0
@@ -142,7 +142,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Max words
                 .col-sm-6
                   input.form-control(type='text', name='maxwords', required='', ui-validate="'words($value) <= 6'", ng-model="maxwords")
-                  span.text-danger(ng-show="validateInput('maxwords', 'validator')") This field requires a maximum amount of words
+                  span.text-danger(ng-show="form.validateInput('maxwords', 'validator')") This field requires a maximum amount of words
                 .col-sm-4
                   small.text-muted ui-validate="'words($value) &lt;= 6'"
             fieldset.b0
@@ -152,8 +152,8 @@ h3 Form Validation
                 label.col-sm-2.control-label Length range
                 .col-sm-6
                   input.form-control(type='text', name='length', required='', ng-model="minmaxlen", ng-minlength="6", ng-maxlength="10")
-                  span.text-danger(ng-show="validateInput('length', 'minlength')") This field requires a min length of 6
-                  span.text-danger(ng-show="validateInput('length', 'maxlength')") This field requires a max length of 10
+                  span.text-danger(ng-show="form.validateInput('length', 'minlength')") This field requires a min length of 6
+                  span.text-danger(ng-show="form.validateInput('length', 'maxlength')") This field requires a max length of 10
                 .col-sm-4
                   small.text-muted ng-minlength="6", ng-maxlength="10"
             fieldset.bb0
@@ -161,7 +161,7 @@ h3 Form Validation
                 label.col-sm-2.control-label Range of words
                 .col-sm-6
                   input.form-control(type='text', name='rangewords', required='', ui-validate="'words($value) >= 6 && words($value) <= 10'", ng-model="rangewords")
-                  span.text-danger(ng-show="validateInput('rangewords', 'validator')") This field requires a range of words
+                  span.text-danger(ng-show="form.validateInput('rangewords', 'validator')") This field requires a range of words
                 .col-sm-4
                   small.text-muted ui-validate="'words($value) &gt;= 6 &amp;&amp; words($value) &lt;= 10'"
             fieldset.b0
@@ -175,15 +175,15 @@ h3 Form Validation
                       input.form-control#id-source(type='password', ng-model="match1")
                     .col-xs-6
                       input.form-control(type='password', name="confirm_match", required='', ng-model="match2", ui-validate="'$value==match1'" ui-validate-watch="'validator.match1'")
-                  p.text-danger(ng-show="validateInput('confirm_match', 'validator')") Input does Not match
+                  p.text-danger(ng-show="form.validateInput('confirm_match', 'validator')") Input does Not match
                 .col-sm-4
                   small.text-muted ui-validate="'$value==match1'"
             fieldset
               .form-group
                 label.col-sm-2.control-label Email BlackList
                 .col-sm-6
-                  input.form-control(type='email', placeholder="example: 'some@mail.com'", name='email_bl', required='', ui-validate="{blacklist : 'notBlackListed($value)' }", ng-model="email_bl")
-                  p.text-danger(ng-show="validateInput('email_bl', 'blacklist')") Email found in black list
+                  input.form-control(type='email', placeholder="example: 'some@mail.com'", name='email_bl', required='', ui-validate="{blacklist : 'form.notBlackListed($value)' }", ng-model="email_bl")
+                  p.text-danger(ng-show="form.validateInput('email_bl', 'blacklist')") Email found in black list
                 .col-sm-4
                   small.text-muted ui-validate="{blacklist}"
             fieldset.b0
@@ -201,7 +201,7 @@ h3 Form Validation
                       option(value="2") New York Giants
                       option(value="3") Philadelphia Eagles
                       option(value="4") Washington Redskins
-                  span.text-danger(ng-show="validateInput('chosen', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('chosen', 'required')") This field is required
                 .col-sm-4
             fieldset
               .form-group(ng-controller='TimepickerDemoCtrl')
@@ -241,49 +241,49 @@ h3 Form Validation
                         option Kansas City Chiefs
                         option Oakland Raiders
                         option San Diego Chargers
-                  span.text-danger(ng-show="validateInput('chosenmultiple', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('chosenmultiple', 'required')") This field is required
                 .col-sm-4
             fieldset
-              .form-group(ng-controller="uiSelectController")
+              .form-group(ng-controller="uiSelectController as uisel")
                 label.col-sm-2.control-label uiSelect
                 .col-sm-6
                   .input-group
-                    ui-select(ng-model='address.selected', name="uiselect", ng-required="true", theme='bootstrap', ng-disabled='disabled', reset-search-input='false')
+                    ui-select(ng-model='uisel.address.selected', name="uiselect", ng-required="true", theme='bootstrap', ng-disabled='uisel.disabled', reset-search-input='false')
                       ui-select-match(placeholder='Enter an address...') {{$select.selected.formatted_address}}
-                      ui-select-choices(repeat='address in addresses track by $index', refresh='refreshAddresses($select.search)', refresh-delay='0')
+                      ui-select-choices(repeat='address in uisel.addresses track by $index', refresh='uisel.refreshAddresses($select.search)', refresh-delay='0')
                         div(ng-bind-html='address.formatted_address | highlight: $select.search')
                     span.input-group-btn
-                      button.btn.btn-default(type="button", ng-click="address.selected = undefined")
-                        small: em.fa.fa-times.text-muted
-                  span.text-danger(ng-show="validateInput('uiselect', 'required')") This field is required
+                      button.btn.btn-default(type="button", ng-click="uisel.address.selected = undefined")
+                        small: em.fa.fa-trash.text-muted.icon-lg
+                  span.text-danger(ng-show="form.validateInput('uiselect', 'required')") This field is required
                 .col-sm-4
-                  small.text-muted Value: {{address.selected.formatted_address}}
+                  small.text-muted Value: {{uisel.address.selected.formatted_address}}
             fieldset
-              .form-group(ng-controller='DatepickerDemoCtrl')
+              .form-group(ng-controller='DatepickerDemoCtrl as dpick')
                 label.col-sm-2.control-label Datepicker
                 .col-sm-6
                   p.input-group
-                    input.form-control(type='text', name="date" required='', datepicker-popup='{{format}}', ng-model='date', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', close-text='Close')
+                    input.form-control(type='text', name="date", required='', datepicker-popup='{{dpick.format}}', ng-model='dpick.date', is-open='dpick.opened', min-date='dpick.minDate', max-date="'2019-12-22'", datepicker-options='dpick.dateOptions', date-disabled='dpick.disabled(date, mode)', close-text='Close')
                     span.input-group-btn
-                      button.btn.btn-default(type='button', ng-click='open($event)')
+                      button.btn.btn-default(type='button', ng-click='dpick.open($event)')
                         em.fa.fa-calendar
-                  span.text-danger(ng-show="validateInput('date', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('date', 'required')") This field is required
                 .col-sm-4
-                  small.text-muted Value: {{date}}
+                  small.text-muted Value: {{dpick.date}}
             fieldset
-              .form-group(ng-controller='TimepickerDemoCtrl')
-                label.col-sm-2.control-label Datepicker
+              .form-group(ng-controller='TimepickerDemoCtrl as tpick')
+                label.col-sm-2.control-label Timepicker
                 .col-sm-6
-                  timepicker(name="timepickr", required='', ng-model='mytime', ng-change='changed()', hour-step='hstep', minute-step='mstep', show-meridian='ismeridian')
-                  span.text-danger(ng-show="validateInput('timepickr', 'required')") This field is invalid
+                  timepicker(name="timepickr", required='', ng-model='tpick.mytime', ng-change='tpick.changed()', hour-step='tpick.hstep', minute-step='tpick.mstep', show-meridian='tpick.ismeridian')
+                  span.text-danger(ng-show="form.validateInput('timepickr', 'required')") This field is invalid
                 .col-sm-4
-                  small.text-muted Time is: {{mytime | date:'shortTime' }}
+                  small.text-muted Time is: {{tpick.mytime | date:'shortTime' }}
             fieldset
               .form-group
                 label.col-sm-2.control-label Tags input
                 .col-sm-6
                   input.form-control(type='text', required='', name="tagsinput", tagsinput, ng-model="tagsinput") 
-                  span.text-danger(ng-show="validateInput('tagsinput', 'required')") This field is required
+                  span.text-danger(ng-show="form.validateInput('tagsinput', 'required')") This field is required
                 .col-sm-4
                   span.help-block Values: {{tagsinput}}
           .panel-footer.text-center

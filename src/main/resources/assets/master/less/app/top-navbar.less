@@ -1,9 +1,9 @@
 /* ========================================================================
    Component: top-navbar.less
  ========================================================================== */
-
+ 
 //
-// Horizontal top navbar
+// Horizontal top navbar 
 // based on the bootstrap navbar styles and markup
 // ----------------------------------------------------
 
@@ -29,9 +29,12 @@
   border-radius: 0;
   background-color: #fff;
   z-index: 1050;
+  border: 0;
   border-bottom: 1px solid rgba(0,0,0,.15);
+  .shadow-z1;
 
   @media @tablet {
+    box-shadow: 0 0 0 #000;
     .navbar-header {
       width: @nav-header-wd;
       text-align: center;
@@ -60,17 +63,17 @@
     position: relative;
     // overlaps nav-wrapper
     z-index: 11;
-
+    
     // Reset default to allow handle via different logo size
     .navbar-brand {
       padding: 0;
       color: white;
     }
-
+    
     // Different Logo size depends on the navbar state
     .brand-logo {
       display: block;
-      padding: 6px 15px;
+      padding: 6px;
       > img {
         display: inline;
         margin: 0 auto;
@@ -81,13 +84,13 @@
     }
     .brand-logo-collapsed {
       display: none;
-      padding: 6px 15px;
+      padding: 6px;
       > img {
         margin: 0 auto;
       }
     }
   }
-
+  
   .navbar-nav > li > a,
   .navbar-nav > .open > a {
     color: @nav-top-item-mobile;
@@ -120,16 +123,22 @@
       color: @nav-top-item-desktop;
     }
   }
-
+  
 }
 
 @media @upto-tablet {
   .sidebar-toggle {
     position: absolute !important;
-    top: 5px;
+    top: 0;
     right: 0;
-    color: white !important;
     z-index: 3001;
+    line-height: @navbar-height !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    // Add color only for the icon
+    > em {
+      color: white;
+    }
   }
 }
 
@@ -149,7 +158,7 @@
     position: static;
     float: left;
   }
-
+  
   // fullwidth dropdowns
   .navbar-nav .open .dropdown-menu {
     position: absolute;
@@ -164,7 +173,7 @@
 // Navbar Search Form
 // ------------------------------
 .topnavbar {
-
+  
   .navbar-form {
     position: absolute;
     top: -100%;
@@ -175,6 +184,7 @@
     height: @navbar-height;
     z-index: 9001;
     .transition(all .3s);
+    border: 0;
     border-bottom: 1px solid #e1e2e3;
 
     .form-group {
@@ -208,7 +218,7 @@
   @media @tablet {
     .navbar-form {
       left: @nav-header-wd;
-    }
+    } 
   }
 
 }
@@ -224,7 +234,7 @@
     border: 0;
     background-color: @nav-top-bg;
     #gradient.horizontal(@nav-top-bg-start, @nav-top-bg-end);
-
+    
     .navbar-header {
       #gradient-remove();
     }
@@ -261,9 +271,7 @@
   .nav-wrapper {
     .clearfix();
     position: relative;
-    //background-color: @nav-top-bg;
-    box-shadow: 0 1px 2px rgba(0,0,0,.15);
-    // behined nav-header
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
     z-index: 10;
 
     // restore nav items positions
@@ -271,7 +279,7 @@
       position: relative;
     }
 
-    // restore opened dropdown
+    // restore opened dropdown 
     .navbar-nav .open .dropdown-menu {
       left: auto;
       right: auto;
@@ -308,5 +316,5 @@
 #gradient-remove() {
   background-image: none;
   background-repeat: no-repeat;
-  filter: none;
+  filter: none;  
 }
