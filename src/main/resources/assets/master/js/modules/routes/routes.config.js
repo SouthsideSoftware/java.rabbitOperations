@@ -29,18 +29,19 @@
               url: '/app',
               abstract: true,
               templateUrl: helper.basepath('app.html'),
-              resolve: helper.resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'classyloader', 'toaster', 'whirl')
+              resolve: helper.resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'classyloader', 'toaster', 'whirl', 'ngDialog')
           })
           .state('app.welcome', {
               url: '/welcome',
               title: 'Welcome',
-              templateUrl: helper.basepath('welcome.html')
+              templateUrl: helper.basepath('welcome.html'),
+            resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'weather-icons', 'ngDialog')
           })
           .state('app.dashboard', {
               url: '/dashboard',
               title: 'Dashboard',
               templateUrl: helper.basepath('dashboard.html'),
-              resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'weather-icons')
+              resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'weather-icons', 'ngDialog')
           })
           .state('app.dashboard_v2', {
               url: '/dashboard_v2',
@@ -48,7 +49,7 @@
               templateUrl: helper.basepath('dashboard_v2.html'),
               controller: 'DashboardV2Controller',
               controllerAs: 'dash2',
-              resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
+              resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'ngDialog')
           })
           .state('app.dashboard_v3', {
               url: '/dashboard_v3',
@@ -56,7 +57,7 @@
               controller: 'DashboardV3Controller',
               controllerAs: 'dash3',
               templateUrl: helper.basepath('dashboard_v3.html'),
-              resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
+              resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps', 'ngDialog')
           })
           .state('app.widgets', {
               url: '/widgets',

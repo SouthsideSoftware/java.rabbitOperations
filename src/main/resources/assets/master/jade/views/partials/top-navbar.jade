@@ -47,6 +47,10 @@ nav.navbar.topnavbar(role='navigation')
         li.visible-lg
           a(href='', toggle-fullscreen)
             em.fa.fa-expand
+        li
+          a(href='#', title="What's new", data-ng-controller="WhatsNewController")
+            em.fa.fa-sticky-note-o(ng-click="open()")
+              span.label.label-danger(ng-show="alertWhatsNew") New
         // START Alert menu
         li.dropdown.dropdown-list(dropdown="")
           a(dropdown-toggle="")
