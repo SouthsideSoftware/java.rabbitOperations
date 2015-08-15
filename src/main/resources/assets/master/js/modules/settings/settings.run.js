@@ -12,8 +12,10 @@
       // Global Settings
       // ----------------------------------- 
       $rootScope.app = {
-        name: 'Angle',
-        description: 'Angular Bootstrap Admin Template',
+        company: "Southside Software, LLC",
+        companyLink: "http://southsidesoft.com",
+        name: 'RabbitOperations',
+        description: 'Tools for managing microservices based on RabbitMQ',
         year: ((new Date()).getFullYear()),
         layout: {
           isFixed: true,
