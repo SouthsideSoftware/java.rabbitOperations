@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('app.whatsNew', ['ngDialog']);
+        .module('app.whatsNew', []);
 })();
