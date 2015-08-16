@@ -16,7 +16,7 @@ public class MetaDataResource {
         Package p = getClass().getPackage();
         String version = p.getImplementationVersion();
         if (version == null){
-
+            version = "0.0.1-STUB";
         }
         return new MetaData(version);
     }
