@@ -76,5 +76,24 @@
     "icon": "icon-graduation",
     "translate": "sidebar.nav.DOCUMENTATION",
     "alert": "stub"
+  },
+  {
+    "text": "Utilities",
+    "heading": "true",
+    "translate": "sidebar.heading.UTLITIES"
+  },
+  {
+    "text": "Local Rabbit",
+    "sref": "http://prl-dev:15672",
+    "icon": "fa fa-envelope-o",
+    "translate": "sidebar.nav.RABBIT",
+    "link": true
+  },
+  {
+    "text": "Local Elasticsearch",
+    "sref": "http://prl-dev:9200/_plugin/HQ/?url=http://prl-dev:9200",
+    "icon": "fa fa-database",
+    "translate": "sidebar.nav.ELASTICSEARCH",
+    "link": true
   }
 ]

@@ -620,7 +620,7 @@
             url: '/ngmaterial',
             title: 'ngMaterial',
             templateUrl: helper.basepath( 'material.ngmaterial.html' )
-          })    
+          })
           // 
           // CUSTOM RESOLVES
           //   Add your own resolves properties
