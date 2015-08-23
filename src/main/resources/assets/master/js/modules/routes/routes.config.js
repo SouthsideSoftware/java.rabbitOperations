@@ -605,6 +605,11 @@
             title: 'Material Lists',
             templateUrl: helper.basepath( 'material.lists.html' )
           })
+          .state('app.clusters', {
+            url: '/configuration/clusters',
+            title: 'Configure Clusters',
+            templateUrl: helper.basepath('configuration.clusters.html')
+          })
           .state('app.inputs', {
             url: '/inputs',
             title: 'Material Inputs',
