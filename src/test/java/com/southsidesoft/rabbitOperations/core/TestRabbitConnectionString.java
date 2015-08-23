@@ -1,5 +1,6 @@
 package com.southsidesoft.rabbitOperations.core;
 
+import com.southsidesoft.rabbitOperations.core.rabbit.RabbitConnectionString;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.*;
 

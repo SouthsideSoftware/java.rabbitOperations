@@ -1,6 +1,7 @@
 package com.southsidesoft.rabbitOperations.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.southsidesoft.rabbitOperations.core.rabbit.RabbitConnectionString;
 
 public class Application {
     private String name;
@@ -14,10 +15,10 @@ public class Application {
     private int documentExpirationDays;
     private int rabbitManagementPort;
     private short prefetch;
-    private RabbitConnectionString connectionString;
+    private Cluster cluster;
 
 
-    public Application() {
+    protected Application() {
         //serialization
     }
 
@@ -33,47 +34,8 @@ public class Application {
         rabbitManagementPort = 15672;
         prefetch = 10;
         maxMessagePerRun = 0;
-        connectionString = RabbitConnectionString.builder().build();
-    }
-
-    @JsonProperty
-    public int getPollingTimeoutMilliseconds() {
-        return pollingTimeoutMilliseconds;
-    }
-
-    @JsonProperty
-    public int getHeartbeatIntervalSeconds() {
-        return heartbeatIntervalSeconds;
-    }
-
-    @JsonProperty
-    public boolean isAutoStartQueuePolling() {
-        return autoStartQueuePolling;
-    }
-
-    @JsonProperty
-    public int getDocumentExpirationDays() {
-        return documentExpirationDays;
-    }
-
-    @JsonProperty
-    public int getRabbitManagementPort() {
-        return rabbitManagementPort;
-    }
-
-    @JsonProperty
-    public short getPrefetch() {
-        return prefetch;
-    }
-
-    @JsonProperty
-    public int getMaxMessagePerRun() {
-        return maxMessagePerRun;
-    }
-
-    @JsonProperty
-    public String getId() {
-        return id;
+        //for now, we hardcode a rabbit cluster
+        cluster = (Cluster)RabbitConnectionString.builder().build();
     }
 
     @JsonProperty
@@ -82,8 +44,28 @@ public class Application {
     }
 
     @JsonProperty
+    protected void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonProperty
+    public String getId() {
+        return id;
+    }
+
+    @JsonProperty
+    protected void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonProperty
     public String getAuditQueue() {
         return auditQueue;
+    }
+
+    @JsonProperty
+    protected void setAuditQueue(String auditQueue) {
+        this.auditQueue = auditQueue;
     }
 
     @JsonProperty
@@ -92,7 +74,87 @@ public class Application {
     }
 
     @JsonProperty
-    public RabbitConnectionString getConnectionString() {
-        return connectionString;
+    protected void setErrorQueue(String errorQueue) {
+        this.errorQueue = errorQueue;
+    }
+
+    @JsonProperty
+    public int getMaxMessagePerRun() {
+        return maxMessagePerRun;
+    }
+
+    @JsonProperty
+    protected void setMaxMessagePerRun(int maxMessagePerRun) {
+        this.maxMessagePerRun = maxMessagePerRun;
+    }
+
+    @JsonProperty
+    public int getPollingTimeoutMilliseconds() {
+        return pollingTimeoutMilliseconds;
+    }
+
+    @JsonProperty
+    protected void setPollingTimeoutMilliseconds(int pollingTimeoutMilliseconds) {
+        this.pollingTimeoutMilliseconds = pollingTimeoutMilliseconds;
+    }
+
+    @JsonProperty
+    public int getHeartbeatIntervalSeconds() {
+        return heartbeatIntervalSeconds;
+    }
+
+    @JsonProperty
+    protected void setHeartbeatIntervalSeconds(int heartbeatIntervalSeconds) {
+        this.heartbeatIntervalSeconds = heartbeatIntervalSeconds;
+    }
+
+    @JsonProperty
+    public boolean isAutoStartQueuePolling() {
+        return autoStartQueuePolling;
+    }
+
+    @JsonProperty
+    protected void setAutoStartQueuePolling(boolean autoStartQueuePolling) {
+        this.autoStartQueuePolling = autoStartQueuePolling;
+    }
+
+    @JsonProperty
+    public int getDocumentExpirationDays() {
+        return documentExpirationDays;
+    }
+
+    @JsonProperty
+    protected void setDocumentExpirationDays(int documentExpirationDays) {
+        this.documentExpirationDays = documentExpirationDays;
+    }
+
+    @JsonProperty
+    public int getRabbitManagementPort() {
+        return rabbitManagementPort;
+    }
+
+    @JsonProperty
+    public void setRabbitManagementPort(int rabbitManagementPort) {
+        this.rabbitManagementPort = rabbitManagementPort;
+    }
+
+    @JsonProperty
+    public short getPrefetch() {
+        return prefetch;
+    }
+
+    @JsonProperty
+    public void setPrefetch(short prefetch) {
+        this.prefetch = prefetch;
+    }
+
+    @JsonProperty
+    public Cluster getCluster() {
+        return cluster;
+    }
+
+    @JsonProperty
+    public void setCluster(Cluster cluster) {
+        this.cluster = cluster;
     }
 }

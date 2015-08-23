@@ -1,4 +1,4 @@
-package com.southsidesoft.rabbitOperations.core;
+package com.southsidesoft.rabbitOperations.core.rabbit;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
