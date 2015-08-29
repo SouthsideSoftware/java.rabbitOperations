@@ -28,7 +28,7 @@ public class RabbitCluster implements Cluster {
     }
 
     @JsonProperty
-    protected void setRabbitConnectionString(RabbitConnectionString rabbitConnectionString) {
+    public void setRabbitConnectionString(RabbitConnectionString rabbitConnectionString) {
         this.rabbitConnectionString = rabbitConnectionString;
     }
 
@@ -39,7 +39,7 @@ public class RabbitCluster implements Cluster {
     }
 
     @JsonProperty
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
