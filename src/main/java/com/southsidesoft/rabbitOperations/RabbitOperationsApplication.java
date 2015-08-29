@@ -3,6 +3,7 @@ package com.southsidesoft.rabbitOperations;
 import com.nefariouszhen.dropwizard.assets.ConfiguredAssetsBundle;
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.ApplicationResource;
+import com.southsidesoft.rabbitOperations.resources.api.v1.ClusterResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.ConfigurationResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.MetaDataResource;
 import io.dropwizard.Application;
@@ -40,6 +41,7 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
         environment.jersey().register(new ApplicationResource());
         environment.jersey().register(new ConfigurationResource());
         environment.jersey().register(new MetaDataResource());
+        environment.jersey().register(new ClusterResource());
 
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck("hello");

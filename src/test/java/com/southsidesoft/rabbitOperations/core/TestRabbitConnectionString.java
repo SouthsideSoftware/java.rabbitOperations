@@ -13,6 +13,16 @@ public class TestRabbitConnectionString {
     }
 
     @Test
+    public void should_have_defaults_in_properties_when_no_options_set(){
+        RabbitConnectionString obj = RabbitConnectionString.builder().build();
+
+        assertThat(obj.getHost()).isEqualTo("localhost");
+        assertThat(obj.getPassword()).isNull();
+        assertThat(obj.getUser()).isNull();
+        assertThat(obj.getVhost()).isNull();
+    }
+
+    @Test
     public void should_return_connection_string_with_logon_when_credentials_set(){
         RabbitConnectionString obj = RabbitConnectionString.builder()
                 .setCredentials("user", "password")

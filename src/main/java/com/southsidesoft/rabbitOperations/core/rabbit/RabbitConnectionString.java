@@ -18,7 +18,12 @@ public class RabbitConnectionString {
         private String password;
         private String vhost;
 
-        public RabbitConnectionString build(){
+        public RabbitConnectionString build()
+        {
+            if (host == null){
+                host = "localhost";
+            }
+
             return new RabbitConnectionString(this);
         }
 
