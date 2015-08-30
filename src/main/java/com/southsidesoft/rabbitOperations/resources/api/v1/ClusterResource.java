@@ -26,6 +26,8 @@ public class ClusterResource {
         checkArgument(cluster != null);
 
         cluster.setName(name);
+
+        //todo: save
         return cluster;
     }
 
