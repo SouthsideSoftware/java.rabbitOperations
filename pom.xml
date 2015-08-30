@@ -8,6 +8,19 @@
     <artifactId>rabbitOperations</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <dropwizard.version>0.8.1</dropwizard.version>
+        <junit.version>4.12</junit.version>
+        <dropwizard-java8.version>0.8.0-1</dropwizard-java8.version>
+        <assertj.version>3.1.0</assertj.version>
+        <dropwizard-configurable-assets.version>0.8.0</dropwizard-configurable-assets.version>
+        <guava.version>18.0</guava.version>
+        <dropwizard-shiro.version>0.2.0</dropwizard-shiro.version>
+        <dropwizard-elasticsearch.version>0.8.0-1</dropwizard-elasticsearch.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.dropwizard</groupId>
@@ -63,6 +76,12 @@
             <version>${dropwizard-shiro.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.dropwizard.modules</groupId>
+            <artifactId>dropwizard-elasticsearch</artifactId>
+            <version>${dropwizard-elasticsearch.version}</version>
+        </dependency>
+
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>
@@ -78,19 +97,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <properties>
-        <!-- use UTF-8 for everything -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <dropwizard.version>0.8.1</dropwizard.version>
-        <junit.version>4.12</junit.version>
-        <dropwizard-java8.version>0.8.0-1</dropwizard-java8.version>
-        <assertj.version>3.1.0</assertj.version>
-        <dropwizard-configurable-assets.version>0.8.0</dropwizard-configurable-assets.version>
-        <guava.version>18.0</guava.version>
-        <dropwizard-shiro.version>0.2.0</dropwizard-shiro.version>
-    </properties>
 
     <build>
         <plugins>

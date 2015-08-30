@@ -4,6 +4,7 @@ import com.nefariouszhen.dropwizard.assets.AssetsBundleConfiguration;
 import com.nefariouszhen.dropwizard.assets.AssetsConfiguration;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.dropwizard.elasticsearch.config.EsConfiguration;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.secnod.dropwizard.shiro.ShiroConfiguration;
 
@@ -19,6 +20,11 @@ public class RabbitOperationsConfiguration extends Configuration implements Asse
     @Valid
     @NotNull
     @JsonProperty
+    private final EsConfiguration esConfiguration = new EsConfiguration();
+
+    @Valid
+    @NotNull
+    @JsonProperty
     protected final ShiroConfiguration shiro = new ShiroConfiguration();
 
     @Override
@@ -26,29 +32,7 @@ public class RabbitOperationsConfiguration extends Configuration implements Asse
         return assets;
     }
 
-    @NotEmpty
-    private String template;
-
-    @NotEmpty
-    private String defaultName = "Stranger";
-
-    @JsonProperty
-    public String getTemplate() {
-        return template;
-    }
-
-    @JsonProperty
-    public void setTemplate(String template) {
-        this.template = template;
-    }
-
-    @JsonProperty
-    public String getDefaultName() {
-        return defaultName;
-    }
-
-    @JsonProperty
-    public void setDefaultName(String name) {
-        this.defaultName = name;
+    public EsConfiguration getEsConfiguration(){
+        return esConfiguration;
     }
 }

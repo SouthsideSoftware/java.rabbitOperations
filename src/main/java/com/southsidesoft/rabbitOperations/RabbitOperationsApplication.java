@@ -7,12 +7,12 @@ import com.southsidesoft.rabbitOperations.resources.api.v1.ClusterResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.ConfigurationResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.MetaDataResource;
 import io.dropwizard.Application;
+import io.dropwizard.elasticsearch.health.EsClusterHealthCheck;
+import io.dropwizard.elasticsearch.managed.ManagedEsClient;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import com.southsidesoft.rabbitOperations.health.TemplateHealthCheck;
 import io.dropwizard.views.ViewBundle;
-import org.glassfish.jersey.server.ResourceConfig;
 import org.secnod.dropwizard.shiro.ShiroBundle;
 import org.secnod.dropwizard.shiro.ShiroConfiguration;
 
@@ -43,9 +43,9 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
         environment.jersey().register(new MetaDataResource());
         environment.jersey().register(new ClusterResource());
 
-        final TemplateHealthCheck healthCheck =
-                new TemplateHealthCheck("hello");
-        environment.healthChecks().register("template", healthCheck);
+        final ManagedEsClient managedClient = new ManagedEsClient(configuration.getEsConfiguration());
+        environment.lifecycle().manage(managedClient);
+        environment.healthChecks().register("ES cluster health", new EsClusterHealthCheck(managedClient.getClient()));
     }
 
     private final ShiroBundle<RabbitOperationsConfiguration> shiro = new ShiroBundle<RabbitOperationsConfiguration>() {
