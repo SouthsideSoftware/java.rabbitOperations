@@ -2,6 +2,8 @@ package com.southsidesoft.rabbitOperations.core.rabbit;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.southsidesoft.rabbitOperations.core.Cluster;
 import static jersey.repackaged.com.google.common.base.Preconditions.checkArgument;
 import static org.eclipse.jetty.util.StringUtil.isNotBlank;
@@ -47,5 +49,17 @@ public class RabbitCluster implements Cluster {
     @Override
     public String getConnectionString() {
         return rabbitConnectionString.toString();
+    }
+
+    @JsonIgnore
+    public byte[] getAsJSONBytes() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsBytes(this) ;
+    }
+
+    @JsonIgnore
+    public String getAsJSONString() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(this) ;
     }
 }

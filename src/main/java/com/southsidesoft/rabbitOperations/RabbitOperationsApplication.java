@@ -37,14 +37,15 @@ public class RabbitOperationsApplication extends Application<RabbitOperationsCon
     @Override
     public void run(RabbitOperationsConfiguration configuration,
                     Environment environment) {
+        final ManagedEsClient managedClient = new ManagedEsClient(configuration.getEsConfiguration());
+        environment.lifecycle().manage(managedClient);
+
         environment.jersey().register(new DashboardResource());
         environment.jersey().register(new ApplicationResource());
         environment.jersey().register(new ConfigurationResource());
         environment.jersey().register(new MetaDataResource());
-        environment.jersey().register(new ClusterResource());
+        environment.jersey().register(new ClusterResource(managedClient));
 
-        final ManagedEsClient managedClient = new ManagedEsClient(configuration.getEsConfiguration());
-        environment.lifecycle().manage(managedClient);
         environment.healthChecks().register("ES cluster health", new EsClusterHealthCheck(managedClient.getClient()));
     }
 
