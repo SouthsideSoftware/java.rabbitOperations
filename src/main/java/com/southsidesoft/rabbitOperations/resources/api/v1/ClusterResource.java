@@ -3,7 +3,6 @@ package com.southsidesoft.rabbitOperations.resources.api.v1;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.southsidesoft.rabbitOperations.core.Cluster;
 import com.southsidesoft.rabbitOperations.core.rabbit.RabbitCluster;
-import com.southsidesoft.rabbitOperations.core.rabbit.RabbitConnectionString;
 import static jersey.repackaged.com.google.common.base.Preconditions.checkArgument;
 import static org.eclipse.jetty.util.StringUtil.isNotBlank;
 import io.dropwizard.elasticsearch.managed.ManagedEsClient;
