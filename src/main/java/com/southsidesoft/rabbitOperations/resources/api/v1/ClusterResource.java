@@ -1,16 +1,17 @@
 package com.southsidesoft.rabbitOperations.resources.api.v1;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.southsidesoft.rabbitOperations.core.Cluster;
 import com.southsidesoft.rabbitOperations.core.rabbit.RabbitCluster;
 import com.southsidesoft.rabbitOperations.core.rabbit.RabbitConnectionString;
 import static jersey.repackaged.com.google.common.base.Preconditions.checkArgument;
 import static org.eclipse.jetty.util.StringUtil.isNotBlank;
 import io.dropwizard.elasticsearch.managed.ManagedEsClient;
+import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.client.Client;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
-import java.util.concurrent.ExecutionException;
 
 @Path("/api/v1/cluster")
 @Produces(MediaType.APPLICATION_JSON)
@@ -27,13 +28,17 @@ public class ClusterResource {
 
     @Path("/{name}")
     @GET
-    public Cluster getById(@PathParam("name") String name) {
-        return new RabbitCluster(name, RabbitConnectionString.builder().build());
+    public Cluster getByName(@PathParam("name") String name) throws IOException {
+        checkArgument(isNotBlank(name));
+
+        Client client = managedEsClient.getClient();
+        GetResponse response = client.prepareGet(INDEX, DOC_TYPE, name).setOperationThreaded(false).execute().actionGet();
+        return RabbitCluster.fromJson(response.getSourceAsString());
     }
 
     @PUT
     @Path("/")
-    public Cluster addOrEditCluster(RabbitCluster cluster) throws InterruptedException, ExecutionException, IOException {
+    public Cluster addOrEditCluster(RabbitCluster cluster) throws JsonProcessingException {
         checkArgument(cluster != null);
         checkArgument(isNotBlank(cluster.getName()));
 
