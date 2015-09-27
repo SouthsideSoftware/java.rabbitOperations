@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.southsidesoft.rabbitOperations.RabbitOperationsApplication;
 import com.southsidesoft.rabbitOperations.core.Cluster;
 
 import java.io.IOException;
@@ -62,15 +63,13 @@ public class RabbitCluster implements Cluster {
 
     @JsonIgnore
     public String getAsJSONString() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(this) ;
+        return RabbitOperationsApplication.objectMapper.writeValueAsString(this) ;
     }
 
     @JsonIgnore
     public static RabbitCluster fromJson(String jsonInput) throws IOException {
         checkArgument(isNotBlank(jsonInput));
 
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(jsonInput, RabbitCluster.class);
+        return RabbitOperationsApplication.objectMapper.readValue(jsonInput, RabbitCluster.class);
     }
 }

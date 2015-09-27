@@ -1,5 +1,6 @@
 package com.southsidesoft.rabbitOperations;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nefariouszhen.dropwizard.assets.ConfiguredAssetsBundle;
 import com.southsidesoft.rabbitOperations.resources.DashboardResource;
 import com.southsidesoft.rabbitOperations.resources.api.v1.ApplicationResource;
@@ -17,6 +18,8 @@ import org.secnod.dropwizard.shiro.ShiroBundle;
 import org.secnod.dropwizard.shiro.ShiroConfiguration;
 
 public class RabbitOperationsApplication extends Application<RabbitOperationsConfiguration> {
+    public static final ObjectMapper objectMapper = new ObjectMapper();
+
     public static void main(String[] args) throws Exception {
         new RabbitOperationsApplication().run(args);
     }
