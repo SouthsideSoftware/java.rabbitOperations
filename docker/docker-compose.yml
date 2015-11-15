@@ -10,7 +10,6 @@ search:
   ports:
   - 9200:9200
   - 9300:9300
-  # Current image has permission problems when mounting volumes
   # If you turn on config, you also have to setup a config file
   volumes:
   - $PWD/mydata:/usr/share/elasticsearch/data
