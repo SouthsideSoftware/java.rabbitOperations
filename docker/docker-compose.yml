@@ -12,5 +12,5 @@ search:
   - 9300:9300
   # If you turn on config, you also have to setup a config file
   volumes:
-  - $PWD/mydata:/usr/share/elasticsearch/data
+  - $PWD/volumes/elasticsearch:/usr/share/elasticsearch/data
   #- $PWD/config:/usr/share/elasticsearch/config

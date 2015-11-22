@@ -31,4 +31,4 @@ src/main/resources/assets/server.old/*
 src/main/resources/assets/index.html.old.html
 
 #docker data
-docker/mydata
+docker/volumes
