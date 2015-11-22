@@ -14,3 +14,26 @@ search:
   volumes:
   - $PWD/volumes/elasticsearch:/usr/share/elasticsearch/data
   #- $PWD/config:/usr/share/elasticsearch/config
+db:
+  image: mariadb
+  ports:
+    - 3306:3306
+  environment:
+    - MYSQL_ROOT_PASSWORD=greenhook66691
+    - MYSQL_DATABASE=rabbitops
+    - MYSQL_USER=sa
+    - MYSQL_PASWORD=greenhook66691
+  #volumes:
+  #- $PWD/volumes/mariadb:/var/lib/mysql
+consul:
+  image: progrium/consul
+  ports:
+  - 8400:8400
+  - 8500:8500
+  - 8600:53/udp
+  hostname: consul
+  links:
+  - rabbit
+  - search
+  - db
+  command: "-server -bootstrap -ui-dir /ui"
